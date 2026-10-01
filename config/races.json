@@ -1,0 +1,20 @@
+{
+  "tracks": {
+    "Las Vegas Motor Speedway": {"lat": 36.2722, "lon": -115.0107, "tz": "America/Los_Angeles", "track_type": "1.5-mile", "rr_url": "https://www.racing-reference.info/tracks/Las_Vegas_Motor_Speedway/W/"},
+    "Charlotte Motor Speedway": {"lat": 35.3513, "lon": -80.6830, "tz": "America/New_York", "track_type": "1.5-mile", "rr_url": "https://www.racing-reference.info/tracks/Charlotte_Motor_Speedway/W/"},
+    "Kansas Speedway": {"lat": 39.1157, "lon": -94.8311, "tz": "America/Chicago", "track_type": "1.5-mile", "rr_url": "https://www.racing-reference.info/tracks/Kansas_Speedway/W/"},
+    "Texas Motor Speedway": {"lat": 33.0372, "lon": -97.2820, "tz": "America/Chicago", "track_type": "1.5-mile", "rr_url": "https://www.racing-reference.info/tracks/Texas_Motor_Speedway/W/"},
+    "Homestead-Miami Speedway": {"lat": 25.4510, "lon": -80.4094, "tz": "America/New_York", "track_type": "1.5-mile", "rr_url": "https://www.racing-reference.info/tracks/Homestead-Miami_Speedway/W/"},
+    "Phoenix Raceway": {"lat": 33.3752, "lon": -112.3110, "tz": "America/Phoenix", "track_type": "1-mile", "rr_url": "https://www.racing-reference.info/tracks/Phoenix_Raceway/W/"},
+    "Talladega Superspeedway": {"lat": 33.5671, "lon": -86.0653, "tz": "America/Chicago", "track_type": "superspeedway", "rr_url": "https://www.racing-reference.info/tracks/Talladega_Superspeedway/W/"},
+    "Martinsville Speedway": {"lat": 36.6342, "lon": -79.8517, "tz": "America/New_York", "track_type": "short", "rr_url": "https://www.racing-reference.info/tracks/Martinsville_Speedway/W/"}
+  },
+  "races": [
+    {"id": "2026-10-04-las-vegas", "series": "Cup", "track": "Las Vegas Motor Speedway", "start_et": "2026-10-04T17:30"},
+    {"id": "2026-10-11-charlotte", "series": "Cup", "track": "Charlotte Motor Speedway", "start_et": "2026-10-11T15:00"},
+    {"id": "2026-10-18-phoenix", "series": "Cup", "track": "Phoenix Raceway", "start_et": "2026-10-18T15:00"},
+    {"id": "2026-10-25-talladega", "series": "Cup", "track": "Talladega Superspeedway", "start_et": "2026-10-25T14:00"},
+    {"id": "2026-11-01-martinsville", "series": "Cup", "track": "Martinsville Speedway", "start_et": "2026-11-01T14:00"},
+    {"id": "2026-11-08-homestead", "series": "Cup", "track": "Homestead-Miami Speedway", "start_et": "2026-11-08T15:00"}
+  ]
+}
