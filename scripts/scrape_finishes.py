@@ -1,73 +1,99 @@
-"""Racing Reference scraper + Open-Meteo archive weather -> data/finishes.csv (weekly, Mondays).
-RR has no public API and its terms limit scraping: tiny volume, 5s delay, skip already-seen URLs.
-UNTESTED against live HTML - run locally once and adjust race_links()/parse_race() if needed."""
-import os, re, time, sys, json, datetime as dt, requests, pandas as pd
+"""Cup finishes from Jayski -> data/finishes.csv, plus Open-Meteo archive weather for each race.
+Flow: season page (2022..now) lists races with dates + 'Results' links -> fetch only races at tracks in
+config/races.json -> parse the finishing-order table. Already-fetched results URLs are skipped, so weekly
+runs only fetch new races. Jayski's terms ask that content not be duplicated/redistributed: keep the volume
+small, keep the request delay, and don't republish their tables."""
+import os, re, sys, json, time, datetime as dt, requests, pandas as pd
 from bs4 import BeautifulSoup
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 OUT = os.path.join(ROOT, "data", "finishes.csv"); CACHE = os.path.join(ROOT, "data", "weather_cache.json")
-H = {"User-Agent": "nascar-dashboard research (malik.i.bryant@gmail.com)"}
-MONTHS = {m: i for i, m in enumerate(["january","february","march","april","may","june","july","august","september","october","november","december"], 1)}
+H = {"User-Agent": "nascar-dashboard personal project (malik.i.bryant@gmail.com)"}
+BASE = "https://www.jayski.com"
+DELAY = 3
 
 def get(url):
-    time.sleep(5); r = requests.get(url, headers=H, timeout=30); r.raise_for_status(); return r.text
+    time.sleep(DELAY); r = requests.get(url, headers=H, timeout=30); r.raise_for_status(); return r.text
 
-def race_links(track_url):
-    soup = BeautifulSoup(get(track_url), "lxml"); links = set()
-    for a in soup.find_all("a", href=re.compile(r"/race-results/(\d{4})_")):
-        if int(re.search(r"/race-results/(\d{4})_", a["href"]).group(1)) >= 2022:
-            links.add(a["href"] if a["href"].startswith("http") else "https://www.racing-reference.info" + a["href"])
-    return sorted(links)
+def season_urls(y):  # Jayski is inconsistent about the path, so try each
+    return [f"{BASE}/race-results/{y}-nascar-cup-series-race-results/",
+            f"{BASE}/nascar-cup-series/{y}-nascar-cup-series-race-results/",
+            f"{BASE}/nascar-cup-series/{y}-nascar-cup-series-results/"]
 
-def find_date(text, url):
-    m = re.search(r"\b(\d{1,2})/(\d{1,2})/(20\d\d)\b", text)
-    if m: return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}", False
-    m = re.search(r"\b(" + "|".join(MONTHS) + r")\s+(\d{1,2}),?\s+(20\d\d)", text, re.I)
-    if m: return f"{m.group(3)}-{MONTHS[m.group(1).lower()]:02d}-{int(m.group(2)):02d}", False
-    return re.search(r"/(\d{4})_", url).group(1) + "-06-01", True   # approximate fallback
+def season_races(y, tracks):
+    """-> [(date 'YYYY-MM-DD', config_track, results_url)] for points races at wanted tracks."""
+    norm = {k.lower(): k for k in tracks}
+    for u in season_urls(y):
+        try: html = get(u)
+        except requests.HTTPError as e:
+            if e.response.status_code == 403: sys.exit("403 Forbidden from Jayski - blocked on this network")
+            continue
+        out = []
+        for tr in BeautifulSoup(html, "lxml").select("table tr"):
+            td = tr.find_all("td")
+            if len(td) < 6 or not td[0].get_text(strip=True).isdigit(): continue   # skips Q / * non-points events
+            trk = norm.get(td[2].get_text(strip=True).lower()); m = re.match(r"(\d{1,2})/(\d{1,2})", td[1].get_text(strip=True))
+            link = next((a["href"] for a in td[5].find_all("a") if a.get_text(strip=True).lower() == "results"), None)
+            if trk and m and link:
+                out.append((f"{y}-{int(m.group(1)):02d}-{int(m.group(2)):02d}", trk, link if link.startswith("http") else BASE + link))
+        if out or "<table" in html: return out
+    print(f"[warn] no season page worked for {y}", file=sys.stderr); return []
 
-def parse_race(url):
-    html = get(url); tbls = pd.read_html(html)
-    t = next(x for x in tbls if "Driver" in map(str, x.columns) and any("Fin" in str(c) for c in x.columns))
-    fin = next(c for c in t.columns if "Fin" in str(c))
-    t = t[pd.to_numeric(t[fin], errors="coerce").notna()]
-    date, approx = find_date(BeautifulSoup(html, "lxml").get_text(" "), url)
-    return pd.DataFrame({"driver": t["Driver"], "finish": pd.to_numeric(t[fin])}), date, approx
+def parse_results(html):
+    for t in BeautifulSoup(html, "lxml").find_all("table"):
+        head = [h.get_text(strip=True).lower() for h in t.find_all("th")]
+        if "fin" in head and "driver" in head:
+            ix = {h: i for i, h in enumerate(head)}; rows = []
+            for tr in t.find_all("tr"):
+                td = [c.get_text(" ", strip=True) for c in tr.find_all("td")]
+                if len(td) >= len(head) and td[ix["fin"]].isdigit():
+                    rows.append({"driver": td[ix["driver"]], "finish": int(td[ix["fin"]]),
+                                 "start": int(td[ix["start"]]) if "start" in ix and td[ix["start"]].isdigit() else None,
+                                 "status": td[ix["status"]] if "status" in ix else None})
+            return rows
+    return []
 
 def race_weather(tr, date, cache):
-    """Mean temp (F) / wind (mph) 1-6 PM track-local from Open-Meteo's historical archive."""
+    """Mean temp (F)/wind (mph), 1-6 PM track-local, from Open-Meteo's historical archive."""
     key = f"{tr['lat']},{tr['lon']}|{date}"
     if key in cache: return cache[key]
+    time.sleep(0.3)
     j = requests.get("https://archive-api.open-meteo.com/v1/archive", timeout=30, params={
         "latitude": tr["lat"], "longitude": tr["lon"], "start_date": date, "end_date": date,
         "hourly": "temperature_2m,wind_speed_10m", "temperature_unit": "fahrenheit",
         "wind_speed_unit": "mph", "timezone": tr["tz"]}).json().get("hourly")
-    if not j: return None            # archive lags ~2 days; retried next run
-    df = pd.DataFrame(j); df["h"] = pd.to_datetime(df["time"]).dt.hour; df = df[(df.h >= 13) & (df.h <= 18)]
-    cache[key] = {"temp_f": round(df.temperature_2m.mean(), 1), "wind_mph": round(df.wind_speed_10m.mean(), 1)}
+    if not j: return None    # archive lags ~2 days; filled on a later run
+    h = pd.DataFrame(j); hr = pd.to_datetime(h["time"]).dt.hour; h = h[(hr >= 13) & (hr <= 18)]
+    if h.temperature_2m.isna().all(): return None
+    cache[key] = {"temp_f": round(h.temperature_2m.mean(), 1), "wind_mph": round(h.wind_speed_10m.mean(), 1)}
     return cache[key]
 
-if __name__ == "__main__":
-    cfg = json.load(open(os.path.join(ROOT, "config", "races.json")))
-    have = pd.read_csv(OUT) if os.path.exists(OUT) else pd.DataFrame()
-    done = set(have["url"]) if "url" in have else set(); new = []
-    for name, tr in cfg["tracks"].items():
-        try: links = race_links(tr["rr_url"])
-        except Exception as e: print("[skip track]", name, e, file=sys.stderr); continue
-        for u in links:
-            if u in done: continue
-            try:
-                d, date, approx = parse_race(u)
-                d["url"], d["track"], d["series"], d["track_type"] = u, name, "Cup", tr["track_type"]
-                d["date"], d["date_approx"] = date, approx; new.append(d)
-            except Exception as e: print("[skip race]", u, e, file=sys.stderr)
-    df = pd.concat([have] + new, ignore_index=True)
-    if df.empty: sys.exit("no data scraped - check rr_url values in config/races.json")
+def add_weather(df, cfg):
     cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
     for c in ("temp_f", "wind_mph"):
         if c not in df: df[c] = None
     for (trk, date), idx in df[df.temp_f.isna()].groupby(["track", "date"]).groups.items():
         try:
             w = race_weather(cfg["tracks"][trk], date, cache)
-            if w: df.loc[idx, ["temp_f", "wind_mph"]] = w["temp_f"], w["wind_mph"]
+            if w: df.loc[idx, "temp_f"], df.loc[idx, "wind_mph"] = w["temp_f"], w["wind_mph"]
         except Exception as e: print("[wx skip]", trk, date, e, file=sys.stderr)
-    df.to_csv(OUT, index=False); json.dump(cache, open(CACHE, "w"))
+    json.dump(cache, open(CACHE, "w")); return df
+
+if __name__ == "__main__":
+    cfg = json.load(open(os.path.join(ROOT, "config", "races.json"))); tracks = cfg["tracks"]
+    have = pd.read_csv(OUT) if os.path.exists(OUT) else pd.DataFrame()
+    if "url" not in have: have = pd.DataFrame()      # older/other schema -> rebuild
+    done = set(have["url"]) if len(have) else set(); new = []
+    for y in range(2022, dt.date.today().year + 1):
+        races = season_races(y, tracks); print(y, "races at configured tracks:", len(races))
+        for date, trk, url in races:
+            if url in done: continue
+            if dt.date.fromisoformat(date) >= dt.date.today(): continue   # not run yet
+            try: rows = parse_results(get(url))
+            except Exception as e: print("[skip race]", url, e, file=sys.stderr); continue
+            if not rows: print("[no table]", url, file=sys.stderr); continue
+            d = pd.DataFrame(rows); d["date"], d["track"], d["series"] = date, trk, "Cup"
+            d["track_type"], d["url"] = tracks[trk]["track_type"], url; new.append(d); print("  +", date, trk, len(d), "drivers")
+    df = pd.concat([have] + new, ignore_index=True) if new or len(have) else pd.DataFrame()
+    if df.empty: sys.exit("nothing scraped - check the log above")
+    df = add_weather(df, cfg); df.to_csv(OUT, index=False)
+    print(f"wrote {len(df)} rows, {df.groupby(['track','date']).ngroups} races, weather on {df.temp_f.notna().sum()} rows")
