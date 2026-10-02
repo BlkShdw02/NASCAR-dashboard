@@ -1,16 +1,17 @@
 {
- "generated_utc": "2026-10-02T21:14:40.613686+00:00",
+ "generated_utc": "2026-10-02T22:14:09.178871+00:00",
  "races": [
   {
    "id": "2026-10-04-las-vegas",
    "track": "Las Vegas Motor Speedway",
    "start_utc": "2026-10-04T21:30:00+00:00",
-   "lead_hours": 48.3,
+   "lead_hours": 47.3,
    "models_used": [
     "GFS",
     "ECMWF",
     "NBM",
     "NAM",
+    "HRRR",
     "NDFD"
    ],
    "models_raw": {
@@ -750,7 +751,7 @@
    "id": "2026-10-11-charlotte",
    "track": "Charlotte Motor Speedway",
    "start_utc": "2026-10-11T19:00:00+00:00",
-   "lead_hours": 213.8,
+   "lead_hours": 212.8,
    "models_used": [
     "GFS",
     "ECMWF",
