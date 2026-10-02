@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NASCAR Weather &amp; Race Predictor</title>
+<style>
+:root{--bg:#f6f6f4;--card:#fff;--tx:#1a1a1a;--mu:#666;--ac:#d4281e;--bd:#ddd}
+@media (prefers-color-scheme:dark){:root{--bg:#141414;--card:#202020;--tx:#eee;--mu:#999;--bd:#383838}}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px system-ui,Arial,sans-serif}
+main{max-width:980px;margin:auto;padding:16px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:16px;margin:0 0 10px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px;margin:12px 0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:6px;padding:7px 11px;cursor:pointer;font:inherit}
+.tabs button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.big{display:flex;gap:22px;flex-wrap:wrap}.big div{font-size:12px;color:var(--mu)}.big b{display:block;font-size:26px;color:var(--tx)}
+.sc{overflow-x:auto}table{border-collapse:collapse;width:100%}
+th,td{padding:6px 8px;border-bottom:1px solid var(--bd);text-align:left;white-space:nowrap}th{font-size:12px;color:var(--mu)}
+.note{font-size:12px;color:var(--mu)}.warn{color:var(--ac);font-weight:600}
+</style></head><body><main>
+<h1>NASCAR Weather &amp; Race Predictor</h1>
+<div class="note" id="stamp">Loading…</div>
+<div class="tabs" id="tabs"></div>
+<div id="view"></div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const f1=x=>x==null||isNaN(x)?"–":Number(x).toFixed(1);
+let D=null;
+fetch("data/latest.json?"+Date.now()).then(r=>r.json()).then(d=>{
+  D=d;const t=new Date(d.generated_utc);
+  $("stamp").textContent=d.generated_utc?"Updated "+t.toLocaleString():"No data yet - run the ingest-weather workflow.";
+  if(!d.races||!d.races.length){$("view").innerHTML='<div class="card">No upcoming races with a forecast yet. Run the <b>ingest-weather</b> workflow in GitHub Actions.</div>';return}
+  $("tabs").innerHTML=d.races.map((r,i)=>`<button data-i="${i}">${esc(r.track.replace(/ (Motor )?(Speedway|Raceway)| Superspeedway/,""))} · ${new Date(r.start_utc).toLocaleDateString(undefined,{month:"short",day:"numeric"})}</button>`).join("");
+  $("tabs").onclick=e=>{if(e.target.dataset.i!=null)show(+e.target.dataset.i)};show(0);
+}).catch(e=>{$("stamp").textContent="Could not load data/latest.json ("+e.message+")"});
 
+function show(i){
+  [...$("tabs").children].forEach((b,j)=>b.classList.toggle("on",i==j));
+  const r=D.races[i],fc=r.forecast||{},p=r.predictions||[];
+  const when=new Date(r.start_utc).toLocaleString(undefined,{weekday:"short",month:"short",day:"numeric",hour:"numeric",minute:"2-digit",timeZoneName:"short"});
+  const raw=Object.entries(r.models_raw||{}).map(([m,v])=>`<tr class="${(r.models_used||[]).includes(m)?"":"note"}"><td>${esc(m)}</td><td>${(r.models_used||[]).includes(m)?"used":"outside window"}</td><td>${f1(v.temp)}</td><td>${f1(v.wind)}</td><td>${f1(v.precip)}</td></tr>`).join("");
+  $("view").innerHTML=`
+  <div class="card"><h2>${esc(r.track)} — ${esc(when)}</h2>
+   <div class="big"><div>Temp °F<b>${f1(fc.temp)}</b></div><div>Wind mph<b>${f1(fc.wind)}</b></div><div>Precip chance %<b>${f1(fc.precip)}</b></div><div>Hours out<b>${Math.round(r.lead_hours)}</b></div></div>
+   ${fc.precip>=40?'<p class="warn">High precipitation risk: expect delays/shortened race and more variance in finishes.</p>':""}
+   <div class="note">Blended from: ${esc((r.models_used||[]).join(", ")||"none")}</div></div>
+  <div class="card"><h2>Model detail (race window average)</h2><div class="sc"><table><thead><tr><th>Model</th><th>Status</th><th>Temp °F</th><th>Wind mph</th><th>Precip %</th></tr></thead><tbody>${raw}</tbody></table></div></div>
+  <div class="card"><h2>Predicted finishing order</h2>${p.length?`<div class="sc"><table><thead><tr><th>Pred</th><th>Driver</th><th>Score</th><th>Track avg</th><th>Similar wx</th><th>1.5-mi avg</th><th>Recent 5</th></tr></thead><tbody>${p.map(x=>`<tr><td>${x.pred}</td><td>${esc(x.driver)}</td><td>${f1(x.score)}</td><td>${f1(x.track)}</td><td>${f1(x.similar_wx)}</td><td>${f1(x.mile_half)}</td><td>${f1(x.form)}</td></tr>`).join("")}</tbody></table></div>`:'<div class="note">No predictions yet. They appear once data/finishes.csv exists (run the refresh-finishes workflow after the scraper works).</div>'}</div>`;
+}
+</script></body></html>
