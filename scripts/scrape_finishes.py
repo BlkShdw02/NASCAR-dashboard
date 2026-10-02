@@ -26,16 +26,20 @@ def season_races(y, tracks):
         try: html = get(u)
         except requests.HTTPError as e:
             if e.response.status_code == 403: sys.exit("403 Forbidden from Jayski - blocked on this network")
-            continue
-        out = []
-        for tr in BeautifulSoup(html, "lxml").select("table tr"):
+            print(f"[debug] {y}: {u} -> HTTP {e.response.status_code}"); continue
+        out, rows = [], BeautifulSoup(html, "lxml").select("table tr")
+        for tr in rows:
             td = tr.find_all("td")
             if len(td) < 6 or not td[0].get_text(strip=True).isdigit(): continue   # skips Q / * non-points events
             trk = norm.get(td[2].get_text(strip=True).lower()); m = re.match(r"(\d{1,2})/(\d{1,2})", td[1].get_text(strip=True))
             link = next((a["href"] for a in td[5].find_all("a") if a.get_text(strip=True).lower() == "results"), None)
             if trk and m and link:
                 out.append((f"{y}-{int(m.group(1)):02d}-{int(m.group(2)):02d}", trk, link if link.startswith("http") else BASE + link))
-        if out or "<table" in html: return out
+        if out: return out
+        print(f"[debug] {y}: {u} -> page loaded, {len(rows)} table rows, 0 usable races")   # keep trying other URL patterns
+        for tr in rows[:4]:
+            print("   row:", [c.get_text(" ", strip=True)[:25] for c in tr.find_all(["td", "th"])][:7],
+                  "links:", [a.get_text(strip=True) for a in tr.find_all("a")][:4])
     print(f"[warn] no season page worked for {y}", file=sys.stderr); return []
 
 def parse_results(html):
@@ -56,11 +60,16 @@ def race_weather(tr, date, cache):
     """Mean temp (F)/wind (mph), 1-6 PM track-local, from Open-Meteo's historical archive."""
     key = f"{tr['lat']},{tr['lon']}|{date}"
     if key in cache: return cache[key]
-    time.sleep(0.3)
-    j = requests.get("https://archive-api.open-meteo.com/v1/archive", timeout=30, params={
-        "latitude": tr["lat"], "longitude": tr["lon"], "start_date": date, "end_date": date,
-        "hourly": "temperature_2m,wind_speed_10m", "temperature_unit": "fahrenheit",
-        "wind_speed_unit": "mph", "timezone": tr["tz"]}).json().get("hourly")
+    j = None
+    for attempt in range(4):                       # Open-Meteo can be slow/throttle shared GitHub IPs
+        time.sleep(1 + attempt * 3)
+        try:
+            j = requests.get("https://archive-api.open-meteo.com/v1/archive", timeout=60, params={
+                "latitude": tr["lat"], "longitude": tr["lon"], "start_date": date, "end_date": date,
+                "hourly": "temperature_2m,wind_speed_10m", "temperature_unit": "fahrenheit",
+                "wind_speed_unit": "mph", "timezone": tr["tz"]}).json().get("hourly"); break
+        except requests.RequestException as e:
+            if attempt == 3: raise
     if not j: return None    # archive lags ~2 days; filled on a later run
     h = pd.DataFrame(j); hr = pd.to_datetime(h["time"]).dt.hour; h = h[(hr >= 13) & (hr <= 18)]
     if h.temperature_2m.isna().all(): return None
