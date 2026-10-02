@@ -87,7 +87,7 @@ def add_weather(df, cfg):
         except Exception as e: print("[wx skip]", trk, date, e, file=sys.stderr)
     json.dump(cache, open(CACHE, "w")); return df
 
-NASCAR_CSV = "https://nascar.kylegrealis.com/cup_series.csv"   # nascaR.data (DriverAverages.com, shared with permission)
+NASCAR_DATA = "https://nascar.kylegrealis.com/cup_series.parquet"   # nascaR.data (DriverAverages.com, shared with permission); the .csv URL returns 404
 MON = {m: i for i, m in enumerate(["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"], 1)}
 
 def parse_calendar(lines, y):
@@ -112,8 +112,8 @@ def current_calendar(y):
 
 def nascar_fallback(y, tracks, done):
     """Season with no static Jayski archive yet (current year): use nascaR.data finishes + Jayski calendar for real dates."""
-    r = requests.get(NASCAR_CSV, headers=H, timeout=60); r.raise_for_status()
-    df = pd.read_csv(io.StringIO(r.text)); low = {c.lower(): c for c in df.columns}
+    r = requests.get(NASCAR_DATA, headers=H, timeout=120); r.raise_for_status()
+    df = pd.read_parquet(io.BytesIO(r.content)); low = {c.lower(): c for c in df.columns}
     print(f"[fallback {y}] nascaR.data columns:", list(df.columns))
     col = lambda *n: next((low[x] for x in n if x in low), None)
     cs, ct, cf, cd, cr, cst = col("season", "year"), col("track"), col("finish", "fin"), col("driver", "name"), col("race", "race_num"), col("start")
