@@ -1,11 +1,11 @@
 {
- "generated_utc": "2026-10-03T13:19:08.047975+00:00",
+ "generated_utc": "2026-10-03T18:30:37.723770+00:00",
  "races": [
   {
    "id": "2026-10-04-las-vegas",
    "track": "Las Vegas Motor Speedway",
    "start_utc": "2026-10-04T21:30:00+00:00",
-   "lead_hours": 32.2,
+   "lead_hours": 27.0,
    "models_used": [
     "GFS",
     "ECMWF",
@@ -16,8 +16,8 @@
    ],
    "models_raw": {
     "GFS": {
-     "temp": 95.69999999999999,
-     "wind": 5.3,
+     "temp": 95.625,
+     "wind": 5.65,
      "precip": 0.0
     },
     "ECMWF": {
@@ -26,18 +26,18 @@
      "precip": 0.0
     },
     "NBM": {
-     "temp": 94.92500000000001,
-     "wind": 4.025,
+     "temp": 94.7,
+     "wind": 3.7750000000000004,
      "precip": 0.0
     },
     "NAM": {
-     "temp": 94.425,
-     "wind": 6.199999999999999,
+     "temp": 94.44999999999999,
+     "wind": 1.8250000000000002,
      "precip": null
     },
     "HRRR": {
-     "temp": 96.375,
-     "wind": 3.325,
+     "temp": 96.025,
+     "wind": 3.55,
      "precip": 0.0
     },
     "NDFD": {
@@ -47,8 +47,8 @@
     }
    },
    "forecast": {
-    "temp": 95.4,
-    "wind": 4.5,
+    "temp": 95.3,
+    "wind": 3.8,
     "precip": 0.0
    },
    "predictions": [
@@ -751,7 +751,7 @@
    "id": "2026-10-11-charlotte",
    "track": "Charlotte Motor Speedway",
    "start_utc": "2026-10-11T19:00:00+00:00",
-   "lead_hours": 197.7,
+   "lead_hours": 192.5,
    "models_used": [
     "GFS",
     "ECMWF",
@@ -760,9 +760,9 @@
    ],
    "models_raw": {
     "GFS": {
-     "temp": 68.4,
-     "wind": 8.14,
-     "precip": 22.6
+     "temp": 63.6,
+     "wind": 8.84,
+     "precip": 23.6
     },
     "ECMWF": {
      "temp": 66.46000000000001,
@@ -771,8 +771,8 @@
     },
     "NBM": {
      "temp": 69.12,
-     "wind": 5.319999999999999,
-     "precip": 30.0
+     "wind": 5.82,
+     "precip": 35.0
     },
     "NAM": {
      "temp": null,
@@ -782,7 +782,7 @@
     "HRRR": {
      "temp": null,
      "wind": null,
-     "precip": 30.0
+     "precip": 35.0
     },
     "NDFD": {
      "temp": null,
@@ -791,9 +791,9 @@
     }
    },
    "forecast": {
-    "temp": 68.0,
-    "wind": 6.2,
-    "precip": 35.0
+    "temp": 66.6,
+    "wind": 6.6,
+    "precip": 37.2
    },
    "predictions": [
     {
