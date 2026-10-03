@@ -1,11 +1,11 @@
 {
- "generated_utc": "2026-10-03T01:14:26.393328+00:00",
+ "generated_utc": "2026-10-03T02:14:57.241490+00:00",
  "races": [
   {
    "id": "2026-10-04-las-vegas",
    "track": "Las Vegas Motor Speedway",
    "start_utc": "2026-10-04T21:30:00+00:00",
-   "lead_hours": 44.3,
+   "lead_hours": 43.3,
    "models_used": [
     "GFS",
     "ECMWF",
@@ -36,8 +36,8 @@
      "precip": null
     },
     "HRRR": {
-     "temp": null,
-     "wind": null,
+     "temp": 98.13333333333333,
+     "wind": 3.3000000000000003,
      "precip": 0.0
     },
     "NDFD": {
@@ -47,8 +47,8 @@
     }
    },
    "forecast": {
-    "temp": 95.3,
-    "wind": 3.8,
+    "temp": 96.0,
+    "wind": 3.6,
     "precip": 0.0
    },
    "predictions": [
@@ -751,7 +751,7 @@
    "id": "2026-10-11-charlotte",
    "track": "Charlotte Motor Speedway",
    "start_utc": "2026-10-11T19:00:00+00:00",
-   "lead_hours": 209.8,
+   "lead_hours": 208.8,
    "models_used": [
     "GFS",
     "ECMWF",
