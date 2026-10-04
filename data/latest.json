@@ -1,11 +1,11 @@
 {
- "generated_utc": "2026-10-04T18:15:08.599188+00:00",
+ "generated_utc": "2026-10-04T21:22:55.561447+00:00",
  "races": [
   {
    "id": "2026-10-04-las-vegas",
    "track": "Las Vegas Motor Speedway",
    "start_utc": "2026-10-04T21:30:00+00:00",
-   "lead_hours": 3.2,
+   "lead_hours": 0.1,
    "models_used": [
     "GFS",
     "ECMWF",
@@ -21,34 +21,34 @@
      "precip": 0.0
     },
     "ECMWF": {
-     "temp": 96.44999999999999,
-     "wind": 3.65,
+     "temp": 96.60000000000001,
+     "wind": 2.375,
      "precip": 0.0
     },
     "NBM": {
-     "temp": 95.45,
-     "wind": 3.65,
+     "temp": 95.52499999999999,
+     "wind": 3.925,
      "precip": 0.0
     },
     "NAM": {
-     "temp": 95.225,
-     "wind": 1.175,
+     "temp": 96.7,
+     "wind": 3.0249999999999995,
      "precip": null
     },
     "HRRR": {
-     "temp": 96.0,
-     "wind": 5.25,
+     "temp": 95.525,
+     "wind": 5.6000000000000005,
      "precip": 0.0
     },
     "NDFD": {
-     "temp": 95.0,
-     "wind": 4.0,
+     "temp": 95.25,
+     "wind": 3.5,
      "precip": 0.0
     }
    },
    "forecast": {
-    "temp": 95.6,
-    "wind": 3.7,
+    "temp": 95.8,
+    "wind": 3.9,
     "precip": 0.0
    },
    "predictions": [
@@ -751,7 +751,7 @@
    "id": "2026-10-11-charlotte",
    "track": "Charlotte Motor Speedway",
    "start_utc": "2026-10-11T19:00:00+00:00",
-   "lead_hours": 168.7,
+   "lead_hours": 165.6,
    "models_used": [
     "GFS",
     "ECMWF",
@@ -765,14 +765,14 @@
      "precip": 50.4
     },
     "ECMWF": {
-     "temp": 73.61999999999999,
-     "wind": 12.46,
+     "temp": 64.48,
+     "wind": 10.98,
      "precip": 59.8
     },
     "NBM": {
-     "temp": 67.94,
-     "wind": 13.5,
-     "precip": 59.0
+     "temp": 67.8,
+     "wind": 13.9,
+     "precip": 57.0
     },
     "NAM": {
      "temp": null,
@@ -782,7 +782,7 @@
     "HRRR": {
      "temp": null,
      "wind": null,
-     "precip": 59.0
+     "precip": 57.0
     },
     "NDFD": {
      "temp": null,
@@ -791,9 +791,9 @@
     }
    },
    "forecast": {
-    "temp": 70.8,
-    "wind": 11.6,
-    "precip": 56.8
+    "temp": 67.6,
+    "wind": 11.2,
+    "precip": 56.1
    },
    "predictions": [
     {
