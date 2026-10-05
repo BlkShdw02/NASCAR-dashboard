@@ -1,11 +1,11 @@
 {
- "generated_utc": "2026-10-05T02:15:40.960927+00:00",
+ "generated_utc": "2026-10-05T03:16:29.344557+00:00",
  "races": [
   {
    "id": "2026-10-04-las-vegas",
    "track": "Las Vegas Motor Speedway",
    "start_utc": "2026-10-04T21:30:00+00:00",
-   "lead_hours": -4.8,
+   "lead_hours": -5.8,
    "models_used": [
     "GFS",
     "ECMWF",
@@ -31,13 +31,13 @@
      "precip": 0.0
     },
     "NAM": {
-     "temp": 95.2,
-     "wind": 3.0,
+     "temp": 95.05000000000001,
+     "wind": 4.25,
      "precip": null
     },
     "HRRR": {
-     "temp": 94.8,
-     "wind": 4.65,
+     "temp": 95.65,
+     "wind": 3.7,
      "precip": 0.0
     },
     "NDFD": {
@@ -47,64 +47,46 @@
     }
    },
    "forecast": {
-    "temp": 95.1,
-    "wind": 4.0,
+    "temp": 95.3,
+    "wind": 3.9,
     "precip": 0.0
    },
    "predictions": [
     {
      "driver": "Denny Hamlin",
-     "score": 9.23,
+     "score": 9.04,
      "track": 13.112715298885512,
-     "similar_wx": 10.0,
+     "similar_wx": null,
      "mile_half": 2.6,
      "form": 5.4,
      "pred": 1
     },
     {
-     "driver": "Kyle Larson",
-     "score": 9.36,
-     "track": 10.529381965552178,
-     "similar_wx": 1.0,
-     "mile_half": 9.8,
-     "form": 16.4,
+     "driver": "William Byron",
+     "score": 10.71,
+     "track": 11.612715298885512,
+     "similar_wx": null,
+     "mile_half": 6.8,
+     "form": 13.2,
      "pred": 2
     },
     {
-     "driver": "William Byron",
-     "score": 9.97,
-     "track": 11.612715298885512,
-     "similar_wx": 7.0,
-     "mile_half": 6.8,
-     "form": 13.2,
+     "driver": "Tyler Reddick",
+     "score": 10.96,
+     "track": 14.279381965552178,
+     "similar_wx": null,
+     "mile_half": 6.6,
+     "form": 6.8,
      "pred": 3
     },
     {
-     "driver": "Tyler Reddick",
-     "score": 10.37,
-     "track": 14.279381965552178,
-     "similar_wx": 8.0,
-     "mile_half": 6.6,
-     "form": 6.8,
+     "driver": "Kyle Larson",
+     "score": 11.45,
+     "track": 10.529381965552178,
+     "similar_wx": null,
+     "mile_half": 9.8,
+     "form": 16.4,
      "pred": 4
-    },
-    {
-     "driver": "Martin Truex Jr.",
-     "score": 11.56,
-     "track": 11.150287065180683,
-     "similar_wx": 9.0,
-     "mile_half": null,
-     "form": 16.2,
-     "pred": 5
-    },
-    {
-     "driver": "Christopher Bell",
-     "score": 11.74,
-     "track": 13.446048632218845,
-     "similar_wx": 2.0,
-     "mile_half": 14.0,
-     "form": 16.6,
-     "pred": 6
     },
     {
      "driver": "Austin Cindric #",
@@ -113,7 +95,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 12.0,
-     "pred": 7
+     "pred": 5
     },
     {
      "driver": "Chandler Smith",
@@ -122,61 +104,88 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 12.0,
+     "pred": 6
+    },
+    {
+     "driver": "Martin Truex Jr.",
+     "score": 12.41,
+     "track": 11.150287065180683,
+     "similar_wx": null,
+     "mile_half": null,
+     "form": 16.2,
+     "pred": 7
+    },
+    {
+     "driver": "Alex Bowman",
+     "score": 13.16,
+     "track": 13.235258358662614,
+     "similar_wx": null,
+     "mile_half": 14.0,
+     "form": 11.8,
      "pred": 8
     },
     {
-     "driver": "Brad Keselowski",
-     "score": 12.79,
-     "track": 16.52938196555218,
-     "similar_wx": 4.0,
-     "mile_half": 11.2,
-     "form": 15.4,
+     "driver": "Daniel Suarez",
+     "score": 13.68,
+     "track": 15.696048632218845,
+     "similar_wx": null,
+     "mile_half": 11.6,
+     "form": 10.4,
      "pred": 9
     },
     {
-     "driver": "Daniel Suarez",
-     "score": 13.94,
-     "track": 15.696048632218845,
-     "similar_wx": 15.0,
-     "mile_half": 11.6,
+     "driver": "Kevin Harvick",
+     "score": 13.89,
+     "track": 15.050369083803734,
+     "similar_wx": null,
+     "mile_half": null,
      "form": 10.4,
      "pred": 10
     },
     {
-     "driver": "Ross Chastain",
-     "score": 14.07,
-     "track": 11.196048632218845,
-     "similar_wx": 5.0,
-     "mile_half": 23.8,
-     "form": 21.8,
+     "driver": "Christopher Bell",
+     "score": 14.18,
+     "track": 13.446048632218845,
+     "similar_wx": null,
+     "mile_half": 14.0,
+     "form": 16.6,
      "pred": 11
     },
     {
-     "driver": "Kevin Harvick",
-     "score": 14.42,
-     "track": 15.050369083803734,
-     "similar_wx": 16.0,
+     "driver": "Aric Almirola",
+     "score": 14.62,
+     "track": 15.764654798089449,
+     "similar_wx": null,
      "mile_half": null,
-     "form": 10.4,
+     "form": 11.2,
      "pred": 12
     },
     {
-     "driver": "Aric Almirola",
-     "score": 14.47,
-     "track": 15.764654798089449,
-     "similar_wx": 14.0,
-     "mile_half": null,
-     "form": 11.2,
+     "driver": "Chase Elliott",
+     "score": 14.86,
+     "track": 17.577507598784194,
+     "similar_wx": null,
+     "mile_half": 11.2,
+     "form": 11.6,
      "pred": 13
     },
     {
+     "driver": "Brad Keselowski",
+     "score": 14.99,
+     "track": 16.52938196555218,
+     "similar_wx": null,
+     "mile_half": 11.2,
+     "form": 15.4,
+     "pred": 14
+    },
+    {
      "driver": "Chris Buescher",
-     "score": 14.74,
+     "score": 15.67,
      "track": 16.61271529888551,
-     "similar_wx": 11.0,
+     "similar_wx": null,
      "mile_half": 14.8,
      "form": 14.0,
-     "pred": 14
+     "pred": 15
     },
     {
      "driver": "Kurt Busch",
@@ -185,79 +194,79 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 11.8,
-     "pred": 15
-    },
-    {
-     "driver": "Ryan Blaney",
-     "score": 16.05,
-     "track": 21.946048632218844,
-     "similar_wx": 6.0,
-     "mile_half": 12.4,
-     "form": 16.6,
      "pred": 16
     },
     {
-     "driver": "Bubba Wallace",
-     "score": 16.2,
-     "track": 20.02938196555218,
-     "similar_wx": 13.0,
-     "mile_half": 10.8,
-     "form": 16.2,
+     "driver": "Ross Chastain",
+     "score": 16.34,
+     "track": 11.196048632218845,
+     "similar_wx": null,
+     "mile_half": 23.8,
+     "form": 21.8,
      "pred": 17
     },
     {
-     "driver": "Kyle Busch",
-     "score": 16.71,
-     "track": 15.696048632218845,
-     "similar_wx": 3.0,
-     "mile_half": 27.666666666666668,
-     "form": 23.4,
+     "driver": "Ryan Preece",
+     "score": 16.93,
+     "track": 17.335258358662614,
+     "similar_wx": null,
+     "mile_half": 15.8,
+     "form": 17.2,
      "pred": 18
     },
     {
-     "driver": "Joey Logano",
-     "score": 17.02,
-     "track": 13.779381965552178,
-     "similar_wx": 12.0,
-     "mile_half": 22.0,
-     "form": 26.8,
+     "driver": "Bubba Wallace",
+     "score": 17.0,
+     "track": 20.02938196555218,
+     "similar_wx": null,
+     "mile_half": 10.8,
+     "form": 16.2,
      "pred": 19
     },
     {
-     "driver": "Alex Bowman",
-     "score": 17.53,
-     "track": 13.235258358662614,
-     "similar_wx": 35.0,
-     "mile_half": 14.0,
-     "form": 11.8,
+     "driver": "Chase Briscoe",
+     "score": 17.98,
+     "track": 19.36271529888551,
+     "similar_wx": null,
+     "mile_half": 14.4,
+     "form": 18.6,
      "pred": 20
     },
     {
-     "driver": "Chase Elliott",
-     "score": 18.29,
-     "track": 17.577507598784194,
-     "similar_wx": 32.0,
-     "mile_half": 11.2,
-     "form": 11.6,
+     "driver": "Austin Cindric",
+     "score": 18.0,
+     "track": 19.36271529888551,
+     "similar_wx": null,
+     "mile_half": 17.2,
+     "form": 15.0,
      "pred": 21
     },
     {
-     "driver": "Ryan Preece",
-     "score": 18.74,
-     "track": 17.335258358662614,
-     "similar_wx": 26.0,
-     "mile_half": 15.8,
-     "form": 17.2,
+     "driver": "Joey Logano",
+     "score": 18.28,
+     "track": 13.779381965552178,
+     "similar_wx": null,
+     "mile_half": 22.0,
+     "form": 26.8,
      "pred": 22
     },
     {
-     "driver": "Austin Cindric",
-     "score": 19.0,
-     "track": 19.36271529888551,
-     "similar_wx": 23.0,
-     "mile_half": 17.2,
-     "form": 15.0,
+     "driver": "Ryan Blaney",
+     "score": 18.56,
+     "track": 21.946048632218844,
+     "similar_wx": null,
+     "mile_half": 12.4,
+     "form": 16.6,
      "pred": 23
+    },
+    {
+     "driver": "Erik Jones",
+     "score": 18.87,
+     "track": 20.27938196555218,
+     "similar_wx": null,
+     "mile_half": 16.8,
+     "form": 17.4,
+     "pred": 24
     },
     {
      "driver": "Noah Gragson(i)",
@@ -266,7 +275,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 19.0,
-     "pred": 24
+     "pred": 25
     },
     {
      "driver": "Riley Herbst",
@@ -275,16 +284,25 @@
      "similar_wx": null,
      "mile_half": 18.8,
      "form": 19.2,
-     "pred": 25
+     "pred": 26
     },
     {
-     "driver": "Austin Dillon",
-     "score": 19.9,
-     "track": 20.36271529888551,
-     "similar_wx": 18.0,
-     "mile_half": 19.8,
-     "form": 21.2,
-     "pred": 26
+     "driver": "Ty Gibbs",
+     "score": 19.25,
+     "track": 20.941143962420558,
+     "similar_wx": null,
+     "mile_half": 14.6,
+     "form": 20.4,
+     "pred": 27
+    },
+    {
+     "driver": "Justin Haley",
+     "score": 19.65,
+     "track": 18.39568941696601,
+     "similar_wx": null,
+     "mile_half": null,
+     "form": 23.4,
+     "pred": 28
     },
     {
      "driver": "John Hunter Nemechek",
@@ -293,34 +311,34 @@
      "similar_wx": null,
      "mile_half": 20.6,
      "form": 20.8,
-     "pred": 27
-    },
-    {
-     "driver": "Justin Haley",
-     "score": 20.24,
-     "track": 18.39568941696601,
-     "similar_wx": 22.0,
-     "mile_half": null,
-     "form": 23.4,
-     "pred": 28
-    },
-    {
-     "driver": "AJ Allmendinger",
-     "score": 20.41,
-     "track": 16.419072948328267,
-     "similar_wx": 21.0,
-     "mile_half": null,
-     "form": 31.6,
      "pred": 29
     },
     {
-     "driver": "Erik Jones",
-     "score": 20.7,
-     "track": 20.27938196555218,
-     "similar_wx": 28.0,
-     "mile_half": 16.8,
-     "form": 17.4,
+     "driver": "Kyle Busch",
+     "score": 20.13,
+     "track": 15.696048632218845,
+     "similar_wx": null,
+     "mile_half": 27.666666666666668,
+     "form": 23.4,
      "pred": 30
+    },
+    {
+     "driver": "AJ Allmendinger",
+     "score": 20.21,
+     "track": 16.419072948328267,
+     "similar_wx": null,
+     "mile_half": null,
+     "form": 31.6,
+     "pred": 31
+    },
+    {
+     "driver": "Austin Dillon",
+     "score": 20.38,
+     "track": 20.36271529888551,
+     "similar_wx": null,
+     "mile_half": 19.8,
+     "form": 21.2,
+     "pred": 32
     },
     {
      "driver": "Daniel Hemric",
@@ -329,7 +347,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 25.2,
-     "pred": 31
+     "pred": 33
     },
     {
      "driver": "Corey Heim",
@@ -338,25 +356,16 @@
      "similar_wx": null,
      "mile_half": 21.666666666666668,
      "form": 20.0,
-     "pred": 32
-    },
-    {
-     "driver": "Chase Briscoe",
-     "score": 20.98,
-     "track": 19.36271529888551,
-     "similar_wx": 33.0,
-     "mile_half": 14.4,
-     "form": 18.6,
-     "pred": 33
-    },
-    {
-     "driver": "Corey LaJoie",
-     "score": 21.05,
-     "track": 20.03917595406957,
-     "similar_wx": 19.0,
-     "mile_half": null,
-     "form": 26.8,
      "pred": 34
+    },
+    {
+     "driver": "Ricky Stenhouse Jr.",
+     "score": 20.95,
+     "track": 21.196048632218844,
+     "similar_wx": null,
+     "mile_half": 22.6,
+     "form": 18.0,
+     "pred": 35
     },
     {
      "driver": "Zane Smith",
@@ -365,7 +374,16 @@
      "similar_wx": null,
      "mile_half": 21.8,
      "form": 20.0,
-     "pred": 35
+     "pred": 36
+    },
+    {
+     "driver": "Carson Hocevar",
+     "score": 21.18,
+     "track": 23.81695373184735,
+     "similar_wx": null,
+     "mile_half": 19.6,
+     "form": 15.4,
+     "pred": 37
     },
     {
      "driver": "A.J. Allmendinger",
@@ -374,32 +392,14 @@
      "similar_wx": null,
      "mile_half": 24.0,
      "form": 22.4,
-     "pred": 36
-    },
-    {
-     "driver": "Harrison Burton",
-     "score": 21.52,
-     "track": 21.03917595406957,
-     "similar_wx": 20.0,
-     "mile_half": null,
-     "form": 25.0,
-     "pred": 37
-    },
-    {
-     "driver": "Ricky Stenhouse Jr.",
-     "score": 21.76,
-     "track": 21.196048632218844,
-     "similar_wx": 25.0,
-     "mile_half": 22.6,
-     "form": 18.0,
      "pred": 38
     },
     {
-     "driver": "Michael McDowell",
-     "score": 21.82,
-     "track": 20.61271529888551,
-     "similar_wx": 17.0,
-     "mile_half": 25.6,
+     "driver": "Corey LaJoie",
+     "score": 21.73,
+     "track": 20.03917595406957,
+     "similar_wx": null,
+     "mile_half": null,
      "form": 26.8,
      "pred": 39
     },
@@ -413,12 +413,12 @@
      "pred": 40
     },
     {
-     "driver": "Ty Gibbs",
-     "score": 22.2,
-     "track": 20.941143962420558,
-     "similar_wx": 34.0,
-     "mile_half": 14.6,
-     "form": 20.4,
+     "driver": "Harrison Burton",
+     "score": 22.03,
+     "track": 21.03917595406957,
+     "similar_wx": null,
+     "mile_half": null,
+     "form": 25.0,
      "pred": 41
     },
     {
@@ -440,13 +440,22 @@
      "pred": 43
     },
     {
+     "driver": "Michael McDowell",
+     "score": 23.02,
+     "track": 20.61271529888551,
+     "similar_wx": null,
+     "mile_half": 25.6,
+     "form": 26.8,
+     "pred": 44
+    },
+    {
      "driver": "Shane van Gisbergen",
      "score": 23.24,
      "track": 23.088145896656535,
      "similar_wx": null,
      "mile_half": 24.8,
      "form": 21.6,
-     "pred": 44
+     "pred": 45
     },
     {
      "driver": "Derek Kraus",
@@ -455,7 +464,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 30.2,
-     "pred": 45
+     "pred": 46
     },
     {
      "driver": "Garrett Smithley",
@@ -464,7 +473,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 29.5,
-     "pred": 46
+     "pred": 47
     },
     {
      "driver": "Landon Cassill",
@@ -473,7 +482,16 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 28.0,
-     "pred": 47
+     "pred": 48
+    },
+    {
+     "driver": "Brennan Poole",
+     "score": 23.61,
+     "track": 21.588145896656535,
+     "similar_wx": null,
+     "mile_half": null,
+     "form": 29.666666666666668,
+     "pred": 49
     },
     {
      "driver": "Shane Van Gisbergen",
@@ -482,7 +500,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 18.4,
-     "pred": 48
+     "pred": 50
     },
     {
      "driver": "Jimmie Johnson",
@@ -491,7 +509,16 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 31.8,
-     "pred": 49
+     "pred": 51
+    },
+    {
+     "driver": "Todd Gilliland",
+     "score": 23.94,
+     "track": 25.112715298885508,
+     "similar_wx": null,
+     "mile_half": 24.4,
+     "form": 19.8,
+     "pred": 52
     },
     {
      "driver": "Daniel Dye",
@@ -500,7 +527,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 24.0,
-     "pred": 50
+     "pred": 53
     },
     {
      "driver": "David Ragan",
@@ -509,16 +536,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 24.0,
-     "pred": 51
-    },
-    {
-     "driver": "Carson Hocevar",
-     "score": 24.15,
-     "track": 23.81695373184735,
-     "similar_wx": 36.0,
-     "mile_half": 19.6,
-     "form": 15.4,
-     "pred": 52
+     "pred": 54
     },
     {
      "driver": "Kaz Grala",
@@ -527,16 +545,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 31.6,
-     "pred": 53
-    },
-    {
-     "driver": "Todd Gilliland",
-     "score": 24.55,
-     "track": 25.112715298885508,
-     "similar_wx": 27.0,
-     "mile_half": 24.4,
-     "form": 19.8,
-     "pred": 54
+     "pred": 55
     },
     {
      "driver": "Josh Bilicki",
@@ -545,7 +554,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 34.8,
-     "pred": 55
+     "pred": 56
     },
     {
      "driver": "Connor Zilisch",
@@ -554,7 +563,7 @@
      "similar_wx": null,
      "mile_half": 29.0,
      "form": 27.8,
-     "pred": 56
+     "pred": 57
     },
     {
      "driver": "Josh Berry",
@@ -563,15 +572,6 @@
      "similar_wx": null,
      "mile_half": 30.2,
      "form": 30.6,
-     "pred": 57
-    },
-    {
-     "driver": "Brennan Poole",
-     "score": 25.21,
-     "track": 21.588145896656535,
-     "similar_wx": 30.0,
-     "mile_half": null,
-     "form": 29.666666666666668,
      "pred": 58
     },
     {
@@ -602,22 +602,31 @@
      "pred": 61
     },
     {
-     "driver": "Ty Dillon",
-     "score": 25.84,
-     "track": 25.83525835866261,
-     "similar_wx": 24.0,
-     "mile_half": 28.6,
-     "form": 24.6,
-     "pred": 62
-    },
-    {
      "driver": "Austin Hill",
      "score": 26.2,
      "track": null,
      "similar_wx": null,
      "mile_half": 26.5,
      "form": 25.8,
+     "pred": 62
+    },
+    {
+     "driver": "Ty Dillon",
+     "score": 26.29,
+     "track": 25.83525835866261,
+     "similar_wx": null,
+     "mile_half": 28.6,
+     "form": 24.6,
      "pred": 63
+    },
+    {
+     "driver": "BJ McLeod",
+     "score": 26.6,
+     "track": 25.33608336951802,
+     "similar_wx": null,
+     "mile_half": null,
+     "form": 30.4,
+     "pred": 64
     },
     {
      "driver": "Josh Williams",
@@ -626,22 +635,13 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 27.0,
-     "pred": 64
-    },
-    {
-     "driver": "BJ McLeod",
-     "score": 27.7,
-     "track": 25.33608336951802,
-     "similar_wx": 31.0,
-     "mile_half": null,
-     "form": 30.4,
      "pred": 65
     },
     {
      "driver": "JJ Yeley",
-     "score": 28.36,
+     "score": 28.15,
      "track": 26.669072948328267,
-     "similar_wx": 29.0,
+     "similar_wx": null,
      "mile_half": null,
      "form": 32.6,
      "pred": 66
@@ -751,7 +751,7 @@
    "id": "2026-10-11-charlotte",
    "track": "Charlotte Motor Speedway",
    "start_utc": "2026-10-11T19:00:00+00:00",
-   "lead_hours": 160.7,
+   "lead_hours": 159.7,
    "models_used": [
     "GFS",
     "ECMWF",
@@ -770,9 +770,9 @@
      "precip": 39.6
     },
     "NBM": {
-     "temp": 67.8,
-     "wind": 13.9,
-     "precip": 57.0
+     "temp": 68.58,
+     "wind": 12.56,
+     "precip": 51.0
     },
     "NAM": {
      "temp": null,
@@ -782,7 +782,7 @@
     "HRRR": {
      "temp": null,
      "wind": null,
-     "precip": 57.0
+     "precip": 51.0
     },
     "NDFD": {
      "temp": null,
@@ -791,28 +791,37 @@
     }
    },
    "forecast": {
-    "temp": 64.9,
-    "wind": 12.0,
-    "precip": 45.9
+    "temp": 65.2,
+    "wind": 11.5,
+    "precip": 43.7
    },
    "predictions": [
     {
      "driver": "Tyler Reddick",
-     "score": 9.22,
+     "score": 9.12,
      "track": 13.058937823834196,
-     "similar_wx": 5.0,
+     "similar_wx": 4.5,
      "mile_half": 6.6,
      "form": 6.8,
      "pred": 1
     },
     {
      "driver": "William Byron",
-     "score": 9.79,
+     "score": 10.49,
      "track": 13.433937823834196,
-     "similar_wx": 2.0,
+     "similar_wx": 5.5,
      "mile_half": 6.8,
      "form": 13.2,
      "pred": 2
+    },
+    {
+     "driver": "Denny Hamlin",
+     "score": 11.85,
+     "track": 14.933937823834196,
+     "similar_wx": 19.0,
+     "mile_half": 2.6,
+     "form": 5.4,
+     "pred": 3
     },
     {
      "driver": "Martin Truex Jr.",
@@ -821,7 +830,7 @@
      "similar_wx": 3.0,
      "mile_half": null,
      "form": 16.2,
-     "pred": 3
+     "pred": 4
     },
     {
      "driver": "Austin Cindric #",
@@ -830,7 +839,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 12.0,
-     "pred": 4
+     "pred": 5
     },
     {
      "driver": "Chandler Smith",
@@ -839,7 +848,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 12.0,
-     "pred": 5
+     "pred": 6
     },
     {
      "driver": "Kevin Harvick",
@@ -848,78 +857,69 @@
      "similar_wx": 11.0,
      "mile_half": null,
      "form": 10.4,
-     "pred": 6
-    },
-    {
-     "driver": "Bubba Wallace",
-     "score": 14.36,
-     "track": 19.933937823834196,
-     "similar_wx": 4.0,
-     "mile_half": 10.8,
-     "form": 16.2,
      "pred": 7
     },
     {
-     "driver": "Alex Bowman",
-     "score": 14.65,
-     "track": 17.058937823834196,
-     "similar_wx": 12.0,
+     "driver": "Christopher Bell",
+     "score": 13.49,
+     "track": 12.433937823834196,
+     "similar_wx": 13.0,
      "mile_half": 14.0,
-     "form": 11.8,
+     "form": 16.6,
      "pred": 8
     },
     {
-     "driver": "Ryan Blaney",
-     "score": 14.93,
-     "track": 21.683937823834196,
-     "similar_wx": 1.0,
-     "mile_half": 12.4,
-     "form": 16.6,
+     "driver": "Alex Bowman",
+     "score": 15.15,
+     "track": 17.058937823834196,
+     "similar_wx": 14.5,
+     "mile_half": 14.0,
+     "form": 11.8,
      "pred": 9
     },
     {
-     "driver": "Denny Hamlin",
-     "score": 15.05,
-     "track": 14.933937823834196,
-     "similar_wx": 35.0,
-     "mile_half": 2.6,
-     "form": 5.4,
+     "driver": "Brad Keselowski",
+     "score": 15.29,
+     "track": 16.308937823834196,
+     "similar_wx": 17.0,
+     "mile_half": 11.2,
+     "form": 15.4,
      "pred": 10
     },
     {
-     "driver": "Brad Keselowski",
-     "score": 15.69,
-     "track": 16.308937823834196,
-     "similar_wx": 19.0,
-     "mile_half": 11.2,
-     "form": 15.4,
+     "driver": "Ryan Blaney",
+     "score": 15.53,
+     "track": 21.683937823834196,
+     "similar_wx": 4.0,
+     "mile_half": 12.4,
+     "form": 16.6,
      "pred": 11
     },
     {
-     "driver": "Christopher Bell",
-     "score": 15.69,
-     "track": 12.433937823834196,
-     "similar_wx": 24.0,
-     "mile_half": 14.0,
-     "form": 16.6,
+     "driver": "Daniel Suarez",
+     "score": 15.76,
+     "track": 21.058937823834196,
+     "similar_wx": 12.0,
+     "mile_half": 11.6,
+     "form": 10.4,
      "pred": 12
     },
     {
-     "driver": "Ricky Stenhouse Jr.",
-     "score": 15.79,
-     "track": 15.933937823834196,
-     "similar_wx": 7.0,
-     "mile_half": 22.6,
-     "form": 18.0,
+     "driver": "Bubba Wallace",
+     "score": 16.16,
+     "track": 19.933937823834196,
+     "similar_wx": 13.0,
+     "mile_half": 10.8,
+     "form": 16.2,
      "pred": 13
     },
     {
-     "driver": "Chris Buescher",
-     "score": 16.14,
-     "track": 21.058937823834196,
-     "similar_wx": 8.0,
-     "mile_half": 14.8,
-     "form": 14.0,
+     "driver": "Ricky Stenhouse Jr.",
+     "score": 16.29,
+     "track": 15.933937823834196,
+     "similar_wx": 9.5,
+     "mile_half": 22.6,
+     "form": 18.0,
      "pred": 14
     },
     {
@@ -932,21 +932,21 @@
      "pred": 15
     },
     {
-     "driver": "Chase Briscoe",
-     "score": 17.85,
-     "track": 18.183937823834196,
-     "similar_wx": 20.0,
-     "mile_half": 14.4,
-     "form": 18.6,
+     "driver": "Kyle Larson",
+     "score": 16.95,
+     "track": 20.067357512953368,
+     "similar_wx": 17.5,
+     "mile_half": 9.8,
+     "form": 16.4,
      "pred": 16
     },
     {
-     "driver": "Daniel Suarez",
-     "score": 17.96,
-     "track": 21.058937823834196,
-     "similar_wx": 23.0,
-     "mile_half": 11.6,
-     "form": 10.4,
+     "driver": "Ty Gibbs",
+     "score": 16.99,
+     "track": 17.353071798667653,
+     "similar_wx": 16.0,
+     "mile_half": 14.6,
+     "form": 20.4,
      "pred": 17
     },
     {
@@ -959,30 +959,30 @@
      "pred": 18
     },
     {
-     "driver": "Ryan Preece",
-     "score": 18.32,
-     "track": 22.183937823834196,
-     "similar_wx": 13.0,
-     "mile_half": 15.8,
-     "form": 17.2,
+     "driver": "Shane van Gisbergen",
+     "score": 18.33,
+     "track": 17.61787564766839,
+     "similar_wx": 11.0,
+     "mile_half": 24.8,
+     "form": 21.6,
      "pred": 19
     },
     {
-     "driver": "Austin Dillon",
-     "score": 18.47,
-     "track": 21.183937823834196,
-     "similar_wx": 9.0,
-     "mile_half": 19.8,
-     "form": 21.2,
+     "driver": "Chris Buescher",
+     "score": 18.34,
+     "track": 21.058937823834196,
+     "similar_wx": 19.0,
+     "mile_half": 14.8,
+     "form": 14.0,
      "pred": 20
     },
     {
-     "driver": "Ty Gibbs",
-     "score": 18.99,
-     "track": 17.353071798667653,
-     "similar_wx": 26.0,
-     "mile_half": 14.6,
-     "form": 20.4,
+     "driver": "Erik Jones",
+     "score": 18.93,
+     "track": 18.808937823834196,
+     "similar_wx": 22.5,
+     "mile_half": 16.8,
+     "form": 17.4,
      "pred": 21
     },
     {
@@ -1004,13 +1004,22 @@
      "pred": 23
     },
     {
-     "driver": "Kyle Larson",
-     "score": 19.45,
-     "track": 20.067357512953368,
-     "similar_wx": 30.0,
-     "mile_half": 9.8,
-     "form": 16.4,
+     "driver": "Joey Logano",
+     "score": 19.17,
+     "track": 17.433937823834196,
+     "similar_wx": 14.5,
+     "mile_half": 22.0,
+     "form": 26.8,
      "pred": 24
+    },
+    {
+     "driver": "Chase Briscoe",
+     "score": 19.25,
+     "track": 18.183937823834196,
+     "similar_wx": 27.0,
+     "mile_half": 14.4,
+     "form": 18.6,
+     "pred": 25
     },
     {
      "driver": "Aric Almirola",
@@ -1019,7 +1028,7 @@
      "similar_wx": 25.0,
      "mile_half": null,
      "form": 11.2,
-     "pred": 25
+     "pred": 26
     },
     {
      "driver": "Shane Van Gisbergen",
@@ -1028,7 +1037,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 18.4,
-     "pred": 26
+     "pred": 27
     },
     {
      "driver": "Kurt Busch",
@@ -1037,43 +1046,25 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 11.8,
-     "pred": 27
-    },
-    {
-     "driver": "Shane van Gisbergen",
-     "score": 20.16,
-     "track": 17.61787564766839,
-     "similar_wx": null,
-     "mile_half": 24.8,
-     "form": 21.6,
      "pred": 28
     },
     {
      "driver": "Corey Heim",
-     "score": 20.2,
+     "score": 19.96,
      "track": 19.61787564766839,
-     "similar_wx": null,
+     "similar_wx": 19.0,
      "mile_half": 21.666666666666668,
      "form": 20.0,
      "pred": 29
     },
     {
-     "driver": "Ross Chastain",
-     "score": 20.33,
-     "track": 17.558937823834196,
-     "similar_wx": 22.0,
-     "mile_half": 23.8,
-     "form": 21.8,
+     "driver": "Ryan Preece",
+     "score": 20.32,
+     "track": 22.183937823834196,
+     "similar_wx": 23.0,
+     "mile_half": 15.8,
+     "form": 17.2,
      "pred": 30
-    },
-    {
-     "driver": "Joey Logano",
-     "score": 20.47,
-     "track": 17.433937823834196,
-     "similar_wx": 21.0,
-     "mile_half": 22.0,
-     "form": 26.8,
-     "pred": 31
     },
     {
      "driver": "Justin Haley",
@@ -1082,6 +1073,15 @@
      "similar_wx": 15.0,
      "mile_half": null,
      "form": 23.4,
+     "pred": 31
+    },
+    {
+     "driver": "A.J. Allmendinger",
+     "score": 20.48,
+     "track": 19.36787564766839,
+     "similar_wx": 18.0,
+     "mile_half": 24.0,
+     "form": 22.4,
      "pred": 32
     },
     {
@@ -1095,9 +1095,9 @@
     },
     {
      "driver": "Riley Herbst",
-     "score": 20.5,
+     "score": 20.6,
      "track": 21.694300518134714,
-     "similar_wx": null,
+     "similar_wx": 21.0,
      "mile_half": 18.8,
      "form": 19.2,
      "pred": 34
@@ -1112,21 +1112,21 @@
      "pred": 35
     },
     {
-     "driver": "Carson Hocevar",
-     "score": 20.68,
-     "track": 22.911917098445596,
-     "similar_wx": null,
-     "mile_half": 19.6,
-     "form": 15.4,
+     "driver": "Austin Dillon",
+     "score": 20.77,
+     "track": 21.183937823834196,
+     "similar_wx": 20.5,
+     "mile_half": 19.8,
+     "form": 21.2,
      "pred": 36
     },
     {
-     "driver": "Chase Elliott",
-     "score": 20.71,
-     "track": 22.058937823834196,
-     "similar_wx": 34.0,
-     "mile_half": 11.2,
-     "form": 11.6,
+     "driver": "Michael McDowell",
+     "score": 20.79,
+     "track": 16.558937823834196,
+     "similar_wx": 21.0,
+     "mile_half": 25.6,
+     "form": 26.8,
      "pred": 37
     },
     {
@@ -1139,31 +1139,49 @@
      "pred": 38
     },
     {
-     "driver": "Erik Jones",
-     "score": 20.83,
-     "track": 18.808937823834196,
-     "similar_wx": 32.0,
-     "mile_half": 16.8,
-     "form": 17.4,
+     "driver": "Chase Elliott",
+     "score": 21.01,
+     "track": 22.058937823834196,
+     "similar_wx": 35.5,
+     "mile_half": 11.2,
+     "form": 11.6,
      "pred": 39
     },
     {
-     "driver": "A.J. Allmendinger",
-     "score": 21.09,
-     "track": 19.36787564766839,
-     "similar_wx": null,
-     "mile_half": 24.0,
-     "form": 22.4,
+     "driver": "Carson Hocevar",
+     "score": 21.14,
+     "track": 22.911917098445596,
+     "similar_wx": 23.0,
+     "mile_half": 19.6,
+     "form": 15.4,
      "pred": 40
     },
     {
-     "driver": "Michael McDowell",
-     "score": 22.19,
-     "track": 16.558937823834196,
-     "similar_wx": 28.0,
-     "mile_half": 25.6,
-     "form": 26.8,
+     "driver": "Ross Chastain",
+     "score": 21.63,
+     "track": 17.558937823834196,
+     "similar_wx": 28.5,
+     "mile_half": 23.8,
+     "form": 21.8,
      "pred": 41
+    },
+    {
+     "driver": "Cole Custer",
+     "score": 21.65,
+     "track": 19.57858376511226,
+     "similar_wx": 16.0,
+     "mile_half": 26.6,
+     "form": 28.8,
+     "pred": 42
+    },
+    {
+     "driver": "Todd Gilliland",
+     "score": 22.35,
+     "track": 20.433937823834196,
+     "similar_wx": 26.5,
+     "mile_half": 24.4,
+     "form": 19.8,
+     "pred": 43
     },
     {
      "driver": "Anthony Alfredo",
@@ -1172,16 +1190,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 22.4,
-     "pred": 42
-    },
-    {
-     "driver": "John Hunter Nemechek",
-     "score": 22.41,
-     "track": 23.745250431778928,
-     "similar_wx": null,
-     "mile_half": 20.6,
-     "form": 20.8,
-     "pred": 43
+     "pred": 44
     },
     {
      "driver": "Corey LaJoie",
@@ -1190,15 +1199,6 @@
      "similar_wx": 17.0,
      "mile_half": null,
      "form": 26.8,
-     "pred": 44
-    },
-    {
-     "driver": "Cole Custer",
-     "score": 23.06,
-     "track": 19.57858376511226,
-     "similar_wx": null,
-     "mile_half": 26.6,
-     "form": 28.8,
      "pred": 45
     },
     {
@@ -1211,40 +1211,13 @@
      "pred": 46
     },
     {
-     "driver": "Austin Hill",
-     "score": 23.62,
-     "track": 21.61787564766839,
-     "similar_wx": null,
-     "mile_half": 26.5,
-     "form": 25.8,
+     "driver": "John Hunter Nemechek",
+     "score": 23.13,
+     "track": 23.745250431778928,
+     "similar_wx": 26.0,
+     "mile_half": 20.6,
+     "form": 20.8,
      "pred": 47
-    },
-    {
-     "driver": "Josh Berry",
-     "score": 23.64,
-     "track": 18.411917098445596,
-     "similar_wx": null,
-     "mile_half": 30.2,
-     "form": 30.6,
-     "pred": 48
-    },
-    {
-     "driver": "Todd Gilliland",
-     "score": 23.65,
-     "track": 20.433937823834196,
-     "similar_wx": 33.0,
-     "mile_half": 24.4,
-     "form": 19.8,
-     "pred": 49
-    },
-    {
-     "driver": "Austin Cindric",
-     "score": 23.9,
-     "track": 26.683937823834196,
-     "similar_wx": 31.0,
-     "mile_half": 17.2,
-     "form": 15.0,
-     "pred": 50
     },
     {
      "driver": "Daniel Dye",
@@ -1253,7 +1226,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 24.0,
-     "pred": 51
+     "pred": 48
     },
     {
      "driver": "David Ragan",
@@ -1262,7 +1235,25 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 24.0,
-     "pred": 52
+     "pred": 49
+    },
+    {
+     "driver": "Austin Hill",
+     "score": 24.3,
+     "track": 21.61787564766839,
+     "similar_wx": 27.0,
+     "mile_half": 26.5,
+     "form": 25.8,
+     "pred": 50
+    },
+    {
+     "driver": "Austin Cindric",
+     "score": 24.6,
+     "track": 26.683937823834196,
+     "similar_wx": 34.5,
+     "mile_half": 17.2,
+     "form": 15.0,
+     "pred": 51
     },
     {
      "driver": "Derek Kraus",
@@ -1271,15 +1262,24 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 30.2,
-     "pred": 53
+     "pred": 52
     },
     {
      "driver": "Ty Dillon",
-     "score": 24.91,
+     "score": 24.71,
      "track": 22.433937823834196,
-     "similar_wx": 27.0,
+     "similar_wx": 26.0,
      "mile_half": 28.6,
      "form": 24.6,
+     "pred": 53
+    },
+    {
+     "driver": "Josh Berry",
+     "score": 24.72,
+     "track": 18.411917098445596,
+     "similar_wx": 29.0,
+     "mile_half": 30.2,
+     "form": 30.6,
      "pred": 54
     },
     {
@@ -1292,31 +1292,22 @@
      "pred": 55
     },
     {
-     "driver": "Cody Ware",
-     "score": 26.06,
-     "track": 21.745250431778928,
-     "similar_wx": null,
-     "mile_half": 32.8,
-     "form": 30.0,
+     "driver": "Noah Gragson",
+     "score": 26.36,
+     "track": 23.933937823834196,
+     "similar_wx": 30.0,
+     "mile_half": 29.2,
+     "form": 25.0,
      "pred": 56
     },
     {
-     "driver": "Connor Zilisch",
-     "score": 26.13,
-     "track": 24.294300518134712,
-     "similar_wx": null,
-     "mile_half": 29.0,
-     "form": 27.8,
+     "driver": "Cody Ware",
+     "score": 26.45,
+     "track": 21.745250431778928,
+     "similar_wx": 28.0,
+     "mile_half": 32.8,
+     "form": 30.0,
      "pred": 57
-    },
-    {
-     "driver": "Katherine Legge",
-     "score": 26.22,
-     "track": 22.61787564766839,
-     "similar_wx": null,
-     "mile_half": 31.0,
-     "form": 30.666666666666668,
-     "pred": 58
     },
     {
      "driver": "BJ McLeod",
@@ -1325,7 +1316,7 @@
      "similar_wx": 29.0,
      "mile_half": null,
      "form": 30.4,
-     "pred": 59
+     "pred": 58
     },
     {
      "driver": "Josh Williams",
@@ -1334,16 +1325,16 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 27.0,
-     "pred": 60
+     "pred": 59
     },
     {
-     "driver": "Noah Gragson",
-     "score": 27.56,
-     "track": 23.933937823834196,
-     "similar_wx": 36.0,
-     "mile_half": 29.2,
-     "form": 25.0,
-     "pred": 61
+     "driver": "Katherine Legge",
+     "score": 27.18,
+     "track": 22.61787564766839,
+     "similar_wx": 31.0,
+     "mile_half": 31.0,
+     "form": 30.666666666666668,
+     "pred": 60
     },
     {
      "driver": "Josh Bilicki",
@@ -1352,7 +1343,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 34.8,
-     "pred": 62
+     "pred": 61
     },
     {
      "driver": "Landon Cassill",
@@ -1361,6 +1352,15 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 28.0,
+     "pred": 62
+    },
+    {
+     "driver": "Connor Zilisch",
+     "score": 28.7,
+     "track": 24.294300518134712,
+     "similar_wx": 39.0,
+     "mile_half": 29.0,
+     "form": 27.8,
      "pred": 63
     },
     {
@@ -1382,22 +1382,13 @@
      "pred": 65
     },
     {
-     "driver": "Timmy Hill",
-     "score": 29.18,
-     "track": 23.86787564766839,
-     "similar_wx": null,
-     "mile_half": 36.0,
-     "form": 36.0,
-     "pred": 66
-    },
-    {
      "driver": "Garrett Smithley",
      "score": 29.5,
      "track": null,
      "similar_wx": null,
      "mile_half": null,
      "form": 29.5,
-     "pred": 67
+     "pred": 66
     },
     {
      "driver": "Brennan Poole",
@@ -1406,7 +1397,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 29.666666666666668,
-     "pred": 68
+     "pred": 67
     },
     {
      "driver": "Ryan Newman",
@@ -1415,7 +1406,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 29.666666666666668,
-     "pred": 69
+     "pred": 68
     },
     {
      "driver": "Joey Gase",
@@ -1424,7 +1415,7 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 30.0,
-     "pred": 70
+     "pred": 69
     },
     {
      "driver": "Casey Mears",
@@ -1433,6 +1424,15 @@
      "similar_wx": null,
      "mile_half": null,
      "form": 30.5,
+     "pred": 70
+    },
+    {
+     "driver": "Timmy Hill",
+     "score": 30.54,
+     "track": 23.86787564766839,
+     "similar_wx": 36.0,
+     "mile_half": 36.0,
+     "form": 36.0,
      "pred": 71
     },
     {
