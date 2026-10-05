@@ -1,11 +1,11 @@
 {
- "generated_utc": "2026-10-05T18:18:51.574045+00:00",
+ "generated_utc": "2026-10-05T22:14:27.565781+00:00",
  "races": [
   {
    "id": "2026-10-11-charlotte",
    "track": "Charlotte Motor Speedway",
    "start_utc": "2026-10-11T19:00:00+00:00",
-   "lead_hours": 144.7,
+   "lead_hours": 140.8,
    "models_used": [
     "GFS",
     "ECMWF",
@@ -19,14 +19,14 @@
      "precip": 31.8
     },
     "ECMWF": {
-     "temp": 65.34,
-     "wind": 9.0,
+     "temp": 68.58,
+     "wind": 7.2,
      "precip": 39.6
     },
     "NBM": {
-     "temp": 68.64000000000001,
-     "wind": 12.400000000000002,
-     "precip": 50.0
+     "temp": 68.74,
+     "wind": 12.1,
+     "precip": 52.0
     },
     "NAM": {
      "temp": null,
@@ -36,18 +36,18 @@
     "HRRR": {
      "temp": null,
      "wind": null,
-     "precip": 50.0
+     "precip": 52.0
     },
     "NDFD": {
-     "temp": 69.2,
-     "wind": 13.0,
-     "precip": 53.0
+     "temp": 69.4,
+     "wind": 12.8,
+     "precip": 57.0
     }
    },
    "forecast": {
-    "temp": 68.1,
-    "wind": 9.6,
-    "precip": 43.8
+    "temp": 69.0,
+    "wind": 8.9,
+    "precip": 45.3
    },
    "predictions": [
     {
