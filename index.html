@@ -3,19 +3,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NASCAR Weather &amp; Race Predictor</title>
 <style>
-:root{--bg:#f6f6f4;--card:#fff;--tx:#1a1a1a;--mu:#666;--ac:#d4281e;--bd:#ddd}
-@media (prefers-color-scheme:dark){:root{--bg:#141414;--card:#202020;--tx:#eee;--mu:#999;--bd:#383838}}
+:root{--bg:#f6f6f4;--card:#fff;--tx:#1a1a1a;--mu:#666;--ac:#d4281e;--bd:#ddd;--tr:#e9e9e4}
+@media (prefers-color-scheme:dark){:root{--bg:#141414;--card:#202020;--tx:#eee;--mu:#999;--bd:#383838;--tr:#2c2c2c}}
 body{margin:0;background:var(--bg);color:var(--tx);font:15px system-ui,Arial,sans-serif}
-main{max-width:980px;margin:auto;padding:16px}
+main{max-width:1000px;margin:auto;padding:16px}
 h1{font-size:22px;margin:0 0 4px}h2{font-size:16px;margin:0 0 10px}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px;margin:12px 0}
-.tabs{display:flex;gap:8px;flex-wrap:wrap}
-.tabs button{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:6px;padding:7px 11px;cursor:pointer;font:inherit}
-.tabs button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
-.big{display:flex;gap:22px;flex-wrap:wrap}.big div{font-size:12px;color:var(--mu)}.big b{display:block;font-size:26px;color:var(--tx)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
+button{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:6px;padding:6px 10px;cursor:pointer;font:inherit}
+button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+select,input[type=range]{font:inherit;background:var(--bg);color:var(--tx);border:1px solid var(--bd);border-radius:6px;padding:4px}
+.big{display:flex;gap:22px;flex-wrap:wrap}.big div{font-size:12px;color:var(--mu)}.big b{display:block;font-size:24px;color:var(--tx)}
 .sc{overflow-x:auto}table{border-collapse:collapse;width:100%}
-th,td{padding:6px 8px;border-bottom:1px solid var(--bd);text-align:left;white-space:nowrap}th{font-size:12px;color:var(--mu)}
+th,td{padding:6px 8px;border-bottom:1px solid var(--bd);text-align:left;white-space:nowrap}th{font-size:12px;color:var(--mu)}th small{display:block;font-weight:400}
 .note{font-size:12px;color:var(--mu)}.warn{color:var(--ac);font-weight:600}
+.leg{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;margin-top:6px}.leg i{display:inline-block;width:12px;height:3px;margin-right:4px;vertical-align:middle}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+svg{max-width:100%;height:auto}.grid{display:grid;grid-template-columns:minmax(260px,420px) 1fr;gap:16px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
 </style></head><body><main>
 <h1>NASCAR Weather &amp; Race Predictor</h1>
 <div class="note" id="stamp">Loading…</div>
@@ -26,26 +30,106 @@ th,td{padding:6px 8px;border-bottom:1px solid var(--bd);text-align:left;white-sp
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const f1=x=>x==null||isNaN(x)?"–":Number(x).toFixed(1);
-let D=null;
+const C16=["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
+const dirTxt=d=>d==null?"–":C16[Math.round(d/22.5)%16]+" "+Math.round(d)+"°";
+const COL={GFS:"#4e79a7",ECMWF:"#f28e2b",NDFD:"#59a14f",NBM:"#b07aa1",NAM:"#c9a400",HRRR:"#e15759",Blend:"currentColor"};
+const MET={temp:"Temp °F",wind:"Wind mph",precip:"Precip %",dir:"Wind direction"};
+const ASPECT={"1.5-mile":1.6,"1-mile":1.4,"superspeedway":1.8,"short":2.3};
+let D,cur=0,metric="temp",stepIdx=2,modelSel="Blend";
+const R=()=>D.races[cur];
+const tfmt=(iso,tz,o)=>new Intl.DateTimeFormat("en-US",{timeZone:tz,...o}).format(new Date(iso));
+const hm={hour:"numeric",minute:"2-digit"};
+const cell=(v,m)=>v==null?"–":m=="dir"?dirTxt(v):f1(v);
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
 fetch("data/latest.json?"+Date.now()).then(r=>r.json()).then(d=>{
-  D=d;const t=new Date(d.generated_utc);
-  $("stamp").textContent=d.generated_utc?"Updated "+t.toLocaleString():"No data yet - run the ingest-weather workflow.";
+  D=d;$("stamp").textContent=d.generated_utc?"Updated "+new Date(d.generated_utc).toLocaleString():"No data yet - run the ingest-weather workflow.";
   if(!d.races||!d.races.length){$("view").innerHTML='<div class="card">No upcoming races with a forecast yet. Run the <b>ingest-weather</b> workflow in GitHub Actions.</div>';return}
   $("tabs").innerHTML=d.races.map((r,i)=>`<button data-i="${i}">${esc(r.track.replace(/ (Motor )?(Speedway|Raceway)| Superspeedway/,""))} · ${new Date(r.start_utc).toLocaleDateString(undefined,{month:"short",day:"numeric"})}</button>`).join("");
-  $("tabs").onclick=e=>{if(e.target.dataset.i!=null)show(+e.target.dataset.i)};show(0);
+  $("tabs").onclick=e=>{if(e.target.dataset.i!=null){cur=+e.target.dataset.i;show()}};show();
 }).catch(e=>{$("stamp").textContent="Could not load data/latest.json ("+e.message+")"});
 
-function show(i){
-  [...$("tabs").children].forEach((b,j)=>b.classList.toggle("on",i==j));
-  const r=D.races[i],fc=r.forecast||{},p=r.predictions||[];
-  const when=new Date(r.start_utc).toLocaleString(undefined,{weekday:"short",month:"short",day:"numeric",hour:"numeric",minute:"2-digit",timeZoneName:"short"});
-  const raw=Object.entries(r.models_raw||{}).map(([m,v])=>`<tr class="${(r.models_used||[]).includes(m)?"":"note"}"><td>${esc(m)}</td><td>${(r.models_used||[]).includes(m)?"used":"outside window"}</td><td>${f1(v.temp)}</td><td>${f1(v.wind)}</td><td>${f1(v.precip)}</td></tr>`).join("");
+function show(){
+  [...$("tabs").children].forEach((b,j)=>b.classList.toggle("on",cur==j));
+  const r=R(),fc=r.forecast||{},p=r.predictions||[];
+  const when=tfmt(r.start_utc,r.tz,{weekday:"short",month:"short",day:"numeric",hour:"numeric",minute:"2-digit",timeZoneName:"short"});
   $("view").innerHTML=`
-  <div class="card"><h2>${esc(r.track)} — ${esc(when)}</h2>
-   <div class="big"><div>Temp °F<b>${f1(fc.temp)}</b></div><div>Wind mph<b>${f1(fc.wind)}</b></div><div>Precip chance %<b>${f1(fc.precip)}</b></div><div>Hours out<b>${Math.round(r.lead_hours)}</b></div></div>
+  <div class="card"><h2>${esc(r.track)} — green flag ${esc(when)}</h2>
+   <div class="big"><div>Temp °F<b>${f1(fc.temp)}</b></div><div>Wind mph<b>${f1(fc.wind)}</b></div><div>Wind from<b>${dirTxt(fc.dir)}</b></div><div>Precip chance %<b>${f1(fc.precip)}</b></div><div>Hours out<b>${Math.round(r.lead_hours)}</b></div></div>
    ${fc.precip>=40?'<p class="warn">High precipitation risk: expect delays/shortened race and more variance in finishes.</p>':""}
-   <div class="note">Blended from: ${esc((r.models_used||[]).join(", ")||"none")}</div></div>
-  <div class="card"><h2>Model detail (race window average)</h2><div class="sc"><table><thead><tr><th>Model</th><th>Status</th><th>Temp °F</th><th>Wind mph</th><th>Precip %</th></tr></thead><tbody>${raw}</tbody></table></div></div>
-  <div class="card"><h2>Predicted finishing order</h2>${p.length?`<div class="sc"><table><thead><tr><th>Pred</th><th>Driver</th><th>Score</th><th>Track avg</th><th>Similar wx</th><th>1.5-mi avg</th><th>Recent 5</th></tr></thead><tbody>${p.map(x=>`<tr><td>${x.pred}</td><td>${esc(x.driver)}</td><td>${f1(x.score)}</td><td>${f1(x.track)}</td><td>${f1(x.similar_wx)}</td><td>${f1(x.mile_half)}</td><td>${f1(x.form)}</td></tr>`).join("")}</tbody></table></div>`:'<div class="note">No predictions yet. They appear once data/finishes.csv exists (run the refresh-finishes workflow after the scraper works).</div>'}</div>`;
+   <div class="note">Race averages are green flag → checkered. Models in blend: ${esc((r.models_used||[]).join(", ")||"none")}</div></div>
+  <div class="card"><h2>Race-day timeline by model</h2>
+   <div class="row" id="mt">${Object.entries(MET).map(([k,v])=>`<button data-m="${k}">${v}</button>`).join("")}</div>
+   <div class="sc" id="tbl"></div>
+   <h2 style="margin-top:16px">Models over time</h2><div class="sc" id="chart"></div><div class="leg" id="leg"></div></div>
+  <div class="card"><h2>Track &amp; wind</h2><div id="trk"></div></div>
+  <div class="card"><h2>Predicted finishing order <span class="note">(active drivers only)</span></h2>${p.length?`<div class="sc"><table><thead><tr><th>Pred</th><th>Driver</th><th>Score</th><th>Track avg</th><th>Similar wx</th><th>1.5-mi avg</th><th>Recent 5</th></tr></thead><tbody>${p.map(x=>`<tr><td>${x.pred}</td><td>${esc(x.driver)}</td><td>${f1(x.score)}</td><td>${f1(x.track)}</td><td>${f1(x.similar_wx)}</td><td>${f1(x.mile_half)}</td><td>${f1(x.form)}</td></tr>`).join("")}</tbody></table></div>`:'<div class="note">No predictions yet. They appear once data/finishes.csv exists.</div>'}</div>`;
+  $("mt").onclick=e=>{if(e.target.dataset.m){metric=e.target.dataset.m;drawMetric()}};
+  modelSel="Blend";drawMetric();drawTrackUI();
+}
+function drawMetric(){[...$("mt").children].forEach(b=>b.classList.toggle("on",b.dataset.m==metric));drawTable();drawChart()}
+
+function drawTable(){
+  const r=R(),names=[...(r.models_used||[]),"Blend"];
+  const head=r.steps.map(s=>`<th>${esc(s.label)}<small>${tfmt(s.time_utc,r.tz,hm)}</small></th>`).join("");
+  const body=names.map(n=>`<tr style="${n=="Blend"?"font-weight:700":""}"><td><i style="display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;background:${COL[n]||"#888"}"></i>${esc(n)}</td>${r.steps.map(s=>`<td>${cell((n=="Blend"?s.blend:s.models[n]||{})[metric],metric)}</td>`).join("")}</tr>`).join("");
+  $("tbl").innerHTML=`<table><thead><tr><th>${MET[metric]}</th>${head}</tr></thead><tbody>${body}</tbody></table><div class="note">Times in track-local time. Checkpoints: 3 h and 1 h before green, green flag, +1.5 h, +3.5 h.</div>`;
+}
+
+function drawChart(){
+  const r=R(),S=r.series,W=780,H=300,m={l:48,r:14,t:20,b:34};
+  const T=S.times.map(t=>+new Date(t)),x0=T[0],x1=T[T.length-1];
+  const lines=[...Object.keys(S.models).map(k=>[k,S.models[k][metric]]),["Blend",S.blend[metric]]];
+  const vals=lines.flatMap(l=>l[1]).filter(v=>v!=null);
+  if(!vals.length){$("chart").innerHTML='<div class="note">No data for this metric.</div>';$("leg").innerHTML="";return}
+  let lo=Math.min(...vals),hi=Math.max(...vals);
+  if(metric=="precip"){lo=0;hi=100}else if(metric=="dir"){lo=0;hi=360}else if(metric=="wind"){lo=0;hi=Math.ceil(hi*1.1+1)}else{lo=Math.floor(lo-2);hi=Math.ceil(hi+2)}
+  const X=t=>m.l+(t-x0)/(x1-x0)*(W-m.l-m.r),Y=v=>H-m.b-(v-lo)/(hi-lo)*(H-m.t-m.b);
+  let g="";
+  for(let i=0;i<=4;i++){const v=lo+(hi-lo)*i/4;g+=`<line x1="${m.l}" x2="${W-m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--bd)"/><text x="${m.l-6}" y="${Y(v)+4}" text-anchor="end" font-size="11" fill="var(--mu)">${Math.round(v)}</text>`}
+  T.forEach((t,i)=>{if(i%2==0)g+=`<text x="${X(t)}" y="${H-12}" text-anchor="middle" font-size="11" fill="var(--mu)">${tfmt(S.times[i],r.tz,{hour:"numeric"})}</text>`});
+  r.steps.forEach((s,i)=>{const x=X(+new Date(s.time_utc));g+=`<line x1="${x}" x2="${x}" y1="${m.t}" y2="${H-m.b}" stroke="var(--mu)" stroke-dasharray="4 3"/><text x="${x}" y="${m.t-6}" text-anchor="middle" font-size="12" font-weight="700" fill="var(--tx)">${i+1}</text>`});
+  lines.forEach(([n,ys])=>{
+    const col=COL[n]||"#888",w=n=="Blend"?3.5:1.8;
+    if(metric=="dir"){ys.forEach((v,i)=>{if(v!=null)g+=`<circle cx="${X(T[i])}" cy="${Y(v)}" r="${n=="Blend"?4:2.6}" fill="${col}"/>`});return}
+    let d="",pen=false;ys.forEach((v,i)=>{if(v==null){pen=false;return}d+=`${pen?"L":"M"}${X(T[i]).toFixed(1)},${Y(v).toFixed(1)}`;pen=true});
+    if(d)g+=`<path d="${d}" fill="none" stroke="${col}" stroke-width="${w}" stroke-linejoin="round"/>`});
+  $("chart").innerHTML=`<svg viewBox="0 0 ${W} ${H}" style="color:var(--tx)" width="${W}">${g}</svg>`;
+  $("leg").innerHTML=lines.map(([n])=>`<span><i style="background:${COL[n]||"#888"}"></i>${esc(n)}</span>`).join("")+r.steps.map((s,i)=>`<span class="note">${i+1} ${esc(s.label.replace(/^\d\. /,""))}</span>`).join("");
+}
+
+function drawTrackUI(){
+  const r=R(),key="hd:"+r.id,verified=r.frontstretch_deg!=null,sv=store.get(key);
+  const h0=sv!=null?+sv:(r.frontstretch_deg??90);
+  $("trk").innerHTML=`<div class="row"><label>Checkpoint <select id="ss">${r.steps.map((s,i)=>`<option value="${i}" ${i==stepIdx?"selected":""}>${esc(s.label)}</option>`).join("")}</select></label>
+   <label>Model <select id="sm">${["Blend",...(r.models_used||[])].map(n=>`<option ${n==modelSel?"selected":""}>${esc(n)}</option>`).join("")}</select></label></div>
+   <div class="grid"><div id="tsvg"></div><div>
+   <div id="wtxt"></div>
+   <p class="note" style="margin-top:14px">Front-stretch heading = compass direction cars travel on the front straight (0° = N, 90° = E).<br>
+   <input id="hd" type="range" min="0" max="359" value="${h0}"> <b id="hv"></b>°</p>
+   <p class="${verified?"note":"warn"}">${verified?"Heading set in config/races.json.":"Track orientation is not verified yet — match the heading to the satellite view, then save it in config/races.json as frontstretch_deg."}
+   <a href="https://www.google.com/maps/@${r.lat},${r.lon},16z/data=!3m1!1e3" target="_blank" rel="noopener">Open satellite map</a></p></div></div>`;
+  $("ss").onchange=e=>{stepIdx=+e.target.value;drawTrack()};$("sm").onchange=e=>{modelSel=e.target.value;drawTrack()};
+  $("hd").oninput=e=>{store.set(key,e.target.value);drawTrack()};drawTrack();
+}
+
+function drawTrack(){
+  const r=R(),s=r.steps[stepIdx],d=(modelSel=="Blend"?s.blend:s.models[modelSel])||{},h=+$("hd").value;$("hv").textContent=h;
+  const a=ASPECT[r.track_type]||1.6,Rr=150/a,L=Rr*(a-1),rot=h-90,th=rot*Math.PI/180;
+  const path=`M${-L},${Rr} L${L},${Rr} A${Rr},${Rr} 0 0 0 ${L},${-Rr} L${-L},${-Rr} A${Rr},${Rr} 0 0 0 ${-L},${Rr} Z`;
+  const sfx=L*0.35,sx=sfx*Math.cos(th)-(Rr+22)*Math.sin(th),sy=sfx*Math.sin(th)+(Rr+22)*Math.cos(th);
+  let arrows="";
+  if(d.dir!=null&&d.wind!=null){const w=(d.dir+180)%360,len=16+Math.min(d.wind,30)*1.1;
+    for(let x=-120;x<=120;x+=60)for(let y=-100;y<=100;y+=50)arrows+=`<g transform="translate(${x},${y}) rotate(${w})" stroke="var(--ac)" stroke-width="2.2" fill="none" opacity=".75" stroke-linecap="round"><path d="M0,${len/2} L0,${-len/2} M-5,${-len/2+8} L0,${-len/2} L5,${-len/2+8}"/></g>`}
+  $("tsvg").innerHTML=`<svg viewBox="-200 -200 400 400" width="400">
+   <g transform="rotate(${rot})"><path d="${path}" fill="var(--tr)" stroke="var(--tx)" stroke-width="10" stroke-linejoin="round"/><path d="${path}" fill="none" stroke="var(--bg)" stroke-width="1.5" stroke-dasharray="6 6"/>
+   <line x1="${sfx}" x2="${sfx}" y1="${Rr-9}" y2="${Rr+9}" stroke="var(--ac)" stroke-width="4"/><path d="M${-L*0.3},${Rr+13} l14,0 l0,-5 l11,8 l-11,8 l0,-5 l-14,0z" fill="var(--tx)" opacity=".7"/></g>
+   <text x="${sx}" y="${sy}" text-anchor="middle" font-size="11" fill="var(--tx)">S/F · front stretch</text>${arrows}
+   <g transform="translate(-165,-165)"><circle r="22" fill="var(--card)" stroke="var(--bd)"/><path d="M0,14 L0,-12 M-5,-5 L0,-13 L5,-5" stroke="var(--tx)" stroke-width="2" fill="none"/><text y="-26" text-anchor="middle" font-size="12" font-weight="700" fill="var(--tx)">N</text></g></svg>`;
+  let tail="";
+  if(d.dir!=null&&d.wind!=null){const w=((d.dir+180)%360-h)*Math.PI/180,t=d.wind*Math.cos(w),c=Math.abs(d.wind*Math.sin(w));
+    tail=`<p>Front stretch: <b>${f1(Math.abs(t))} mph ${t>=0?"tailwind":"headwind"}</b> (back stretch ${t>=0?"headwind":"tailwind"}), crosswind about ${f1(c)} mph.</p>`}
+  $("wtxt").innerHTML=`<div class="big"><div>Wind from<b>${dirTxt(d.dir)}</b></div><div>Speed mph<b>${f1(d.wind)}</b></div><div>Temp °F<b>${f1(d.temp)}</b></div><div>Precip %<b>${f1(d.precip)}</b></div></div>
+   <p class="note">${esc(s.label)} · ${tfmt(s.time_utc,r.tz,hm)} track time · ${esc(modelSel)}. Red arrows show where the wind is blowing toward.</p>${tail}<p class="note">Cars run counter-clockwise.</p>`;
 }
 </script></body></html>
