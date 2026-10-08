@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-10-08T04:15:58.616946+00:00",
+ "generated_utc": "2026-10-08T05:15:32.617411+00:00",
  "races": [
   {
    "id": "2026-10-11-charlotte",
@@ -10,7 +10,7 @@
    "lon": -80.683,
    "frontstretch_deg": null,
    "start_utc": "2026-10-11T19:00:00+00:00",
-   "lead_hours": 86.7,
+   "lead_hours": 85.7,
    "models_used": [
     "GFS",
     "ECMWF",
