@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-10-12T00:24:17.661669+00:00",
+ "generated_utc": "2026-10-12T01:19:15.986248+00:00",
  "races": [
   {
    "id": "2026-10-11-charlotte",
@@ -10,7 +10,7 @@
    "lon": -80.683,
    "frontstretch_deg": null,
    "start_utc": "2026-10-11T19:00:00+00:00",
-   "lead_hours": -5.4,
+   "lead_hours": -6.3,
    "models_used": [
     "GFS",
     "ECMWF",
@@ -611,7 +611,7 @@
        null,
        null,
        null,
-       66.0,
+       null,
        65.0
       ],
       "wind": [
@@ -626,7 +626,7 @@
        null,
        null,
        null,
-       10.0,
+       null,
        10.0
       ],
       "dir": [
@@ -641,7 +641,7 @@
        null,
        null,
        null,
-       225.0,
+       null,
        225.0
       ],
       "precip": [
@@ -656,7 +656,7 @@
        null,
        null,
        null,
-       2.0,
+       null,
        1.0
       ]
      }
@@ -674,7 +674,7 @@
       null,
       null,
       null,
-      67.4,
+      67.5,
       66.8
      ],
      "wind": [
@@ -689,7 +689,7 @@
       null,
       null,
       null,
-      7.9,
+      7.6,
       8.0
      ],
      "dir": [
@@ -704,7 +704,7 @@
       null,
       null,
       null,
-      237.0,
+      239.0,
       235.0
      ],
      "precip": [
@@ -719,7 +719,7 @@
       null,
       null,
       null,
-      2.3,
+      2.4,
       0.2
      ]
     }
@@ -1093,7 +1093,7 @@
    "lon": -112.311,
    "frontstretch_deg": null,
    "start_utc": "2026-10-18T19:00:00+00:00",
-   "lead_hours": 162.6,
+   "lead_hours": 161.7,
    "models_used": [
     "GFS",
     "ECMWF",
