@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-10-12T01:19:15.986248+00:00",
+ "generated_utc": "2026-10-12T02:17:04.538504+00:00",
  "races": [
   {
    "id": "2026-10-11-charlotte",
@@ -10,7 +10,7 @@
    "lon": -80.683,
    "frontstretch_deg": null,
    "start_utc": "2026-10-11T19:00:00+00:00",
-   "lead_hours": -6.3,
+   "lead_hours": -7.3,
    "models_used": [
     "GFS",
     "ECMWF",
@@ -363,8 +363,8 @@
        null,
        null,
        null,
-       69.3,
-       68.3
+       68.4,
+       67.6
       ],
       "wind": [
        null,
@@ -378,8 +378,8 @@
        null,
        null,
        null,
-       10.0,
-       10.0
+       9.8,
+       9.5
       ],
       "dir": [
        null,
@@ -393,8 +393,8 @@
        null,
        null,
        null,
-       224.0,
-       230.0
+       227.0,
+       231.0
       ],
       "precip": [
        null,
@@ -549,8 +549,8 @@
        null,
        null,
        null,
-       66.9,
-       66.5
+       68.1,
+       65.9
       ],
       "wind": [
        null,
@@ -564,8 +564,8 @@
        null,
        null,
        null,
-       5.5,
-       6.2
+       4.4,
+       7.8
       ],
       "dir": [
        null,
@@ -579,8 +579,8 @@
        null,
        null,
        null,
-       237.0,
-       228.0
+       205.0,
+       232.0
       ],
       "precip": [
        null,
@@ -612,7 +612,7 @@
        null,
        null,
        null,
-       65.0
+       null
       ],
       "wind": [
        null,
@@ -627,7 +627,7 @@
        null,
        null,
        null,
-       10.0
+       null
       ],
       "dir": [
        null,
@@ -642,7 +642,7 @@
        null,
        null,
        null,
-       225.0
+       null
       ],
       "precip": [
        null,
@@ -657,7 +657,7 @@
        null,
        null,
        null,
-       1.0
+       null
       ]
      }
     },
@@ -674,7 +674,7 @@
       null,
       null,
       null,
-      67.5,
+      67.7,
       66.8
      ],
      "wind": [
@@ -689,8 +689,8 @@
       null,
       null,
       null,
-      7.6,
-      8.0
+      7.3,
+      8.1
      ],
      "dir": [
       null,
@@ -704,8 +704,8 @@
       null,
       null,
       null,
-      239.0,
-      235.0
+      230.0,
+      238.0
      ],
      "precip": [
       null,
@@ -720,7 +720,7 @@
       null,
       null,
       2.4,
-      0.2
+      0.0
      ]
     }
    },
@@ -1093,7 +1093,7 @@
    "lon": -112.311,
    "frontstretch_deg": null,
    "start_utc": "2026-10-18T19:00:00+00:00",
-   "lead_hours": 161.7,
+   "lead_hours": 160.7,
    "models_used": [
     "GFS",
     "ECMWF",
@@ -1497,7 +1497,7 @@
      },
      "NDFD": {
       "temp": [
-       null,
+       66.0,
        null,
        null,
        null,
@@ -1512,7 +1512,7 @@
        null
       ],
       "wind": [
-       null,
+       15.0,
        null,
        null,
        null,
@@ -1527,7 +1527,7 @@
        null
       ],
       "dir": [
-       null,
+       90.0,
        null,
        null,
        null,
@@ -1542,7 +1542,7 @@
        null
       ],
       "precip": [
-       null,
+       2.0,
        null,
        null,
        null,
@@ -1560,7 +1560,7 @@
     },
     "blend": {
      "temp": [
-      67.0,
+      66.8,
       68.3,
       70.0,
       72.9,
@@ -1575,7 +1575,7 @@
       82.2
      ],
      "wind": [
-      9.8,
+      11.0,
       9.7,
       9.7,
       10.0,
@@ -1590,7 +1590,7 @@
       3.3
      ],
      "dir": [
-      79.0,
+      82.0,
       84.0,
       89.0,
       90.0,
@@ -1605,7 +1605,7 @@
       60.0
      ],
      "precip": [
-      3.7,
+      3.3,
       3.7,
       3.7,
       3.3,
