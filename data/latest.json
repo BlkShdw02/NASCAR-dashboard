@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-10-12T22:14:02.504400+00:00",
+ "generated_utc": "2026-10-12T23:15:05.021963+00:00",
  "races": [
   {
    "id": "2026-10-18-phoenix",
@@ -10,7 +10,7 @@
    "lon": -112.311,
    "frontstretch_deg": null,
    "start_utc": "2026-10-18T19:00:00+00:00",
-   "lead_hours": 140.8,
+   "lead_hours": 139.7,
    "models_used": [
     "GFS",
     "ECMWF",
