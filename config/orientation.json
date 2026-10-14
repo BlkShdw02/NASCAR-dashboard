@@ -1,0 +1,9 @@
+{
+ "Las Vegas Motor Speedway": {
+  "heading_deg": 247,
+  "source": "osm",
+  "way_id": 486868843,
+  "perimeter_mi": 1.13,
+  "longest_straight_m": 509
+ }
+}
