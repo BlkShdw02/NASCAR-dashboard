@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-10-14T21:25:51.859554+00:00",
+ "generated_utc": "2026-10-14T22:24:10.928111+00:00",
  "races": [
   {
    "id": "2026-10-18-phoenix",
@@ -11,7 +11,7 @@
    "frontstretch_deg": null,
    "osm_heading_deg": null,
    "start_utc": "2026-10-18T19:00:00+00:00",
-   "lead_hours": 93.6,
+   "lead_hours": 92.6,
    "models_used": [
     "GFS",
     "ECMWF",
@@ -395,7 +395,7 @@
        80.0,
        80.0,
        80.0,
-       63.0
+       60.0
       ],
       "precip": [
        8.0,
@@ -520,7 +520,7 @@
       87.0,
       92.0,
       94.0,
-      85.0
+      84.0
      ],
      "precip": [
       8.5,
