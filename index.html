@@ -20,6 +20,13 @@ th,td{padding:6px 8px;border-bottom:1px solid var(--bd);text-align:left;white-sp
 .leg{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;margin-top:6px}.leg i{display:inline-block;width:12px;height:3px;margin-right:4px;vertical-align:middle}
 .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
 svg{max-width:100%;height:auto}.grid{display:grid;grid-template-columns:minmax(260px,420px) 1fr;gap:16px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.vg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.vt{border:1px solid var(--bd);border-left:5px solid var(--mu);border-radius:8px;padding:8px 10px}
+.vt.ok{border-left-color:#3a9d5d}.vt.mid{border-left-color:#d9a400}.vt.bad{border-left-color:var(--ac)}
+.vt b{display:block;font-size:18px}.vt span{font-size:12px;color:var(--mu)}
+.h1{background:rgba(58,157,93,.30)}.h2{background:rgba(58,157,93,.11)}.h3{background:rgba(217,164,0,.16)}.h4{background:rgba(212,40,30,.18)}
+.lg{display:grid;gap:4px;font-size:13px;margin:8px 0 12px}.sw{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:middle;margin-right:6px;border:1px solid var(--bd)}
+details summary{cursor:pointer;font-weight:600}
 </style></head><body><main>
 <h1>NASCAR Weather &amp; Race Predictor</h1>
 <div class="note" id="stamp">Loading…</div>
@@ -35,7 +42,7 @@ const dirTxt=d=>d==null?"–":C16[Math.round(d/22.5)%16]+" "+Math.round(d)+"°";
 const COL={GFS:"#4e79a7",ECMWF:"#f28e2b",NDFD:"#59a14f",NBM:"#b07aa1",NAM:"#c9a400",HRRR:"#e15759",Blend:"currentColor"};
 const MET={temp:"Temp °F",wind:"Wind mph",precip:"Precip %",dir:"Wind direction"};
 const ASPECT={"1.5-mile":1.6,"1-mile":1.4,"superspeedway":1.8,"short":2.3};
-let D,cur=0,metric="temp",stepIdx=2,modelSel="Blend";
+let MM=null,showAll=false,D,cur=0,metric="temp",stepIdx=2,modelSel="Blend";
 const R=()=>D.races[cur];
 const tfmt=(iso,tz,o)=>new Intl.DateTimeFormat("en-US",{timeZone:tz,...o}).format(new Date(iso));
 const hm={hour:"numeric",minute:"2-digit"};
@@ -48,24 +55,69 @@ fetch("data/latest.json?"+Date.now()).then(r=>r.json()).then(d=>{
   $("tabs").innerHTML=d.races.map((r,i)=>`<button data-i="${i}">${esc(r.track.replace(/ (Motor )?(Speedway|Raceway)| Superspeedway/,""))} · ${new Date(r.start_utc).toLocaleDateString(undefined,{month:"short",day:"numeric"})}</button>`).join("");
   $("tabs").onclick=e=>{if(e.target.dataset.i!=null){cur=+e.target.dataset.i;show()}};show();
 }).catch(e=>{$("stamp").textContent="Could not load data/latest.json ("+e.message+")"});
+fetch("data/model_metrics.json?"+Date.now()).then(r=>r.ok?r.json():null).then(m=>{MM=m;if(D&&$("rep"))drawReport()}).catch(()=>{});
 
+
+const TYPE={"1.5-mile":"1.5-mile tracks","1-mile":"1-mile tracks","superspeedway":"superspeedways","short":"short tracks"};
+function verdict(r){
+  const fc=r.forecast||{},g=(r.steps[2]||{}).models||{},ms=Object.values(g);
+  const rain=fc.precip==null?["Unknown","","No precipitation data yet."]:fc.precip<20?["Low","ok","Race should run on time."]:fc.precip<40?["Moderate","mid","Possible delays - check radar on race morning."]:["High","bad","Expect delays or a shortened race; finishes get harder to predict."];
+  const wind=fc.wind==null?["Unknown","",""]:fc.wind<8?["Calm","ok","Little effect on the cars."]:fc.wind<15?["Breezy","mid","Can unsettle cars in the corners."]:fc.wind<25?["Windy","bad","Handling swings; expect more spread in finishes."]:["Very windy","bad","Big handling changes; expect surprises."];
+  const temp=fc.temp==null?["Unknown","",""]:fc.temp<55?["Cool "+Math.round(fc.temp)+"°F","ok","More grip, faster track."]:fc.temp<78?["Mild "+Math.round(fc.temp)+"°F","ok","Typical conditions."]:fc.temp<90?["Warm "+Math.round(fc.temp)+"°F","mid","Track gets slicker as the race goes on."]:["Hot "+Math.round(fc.temp)+"°F","bad","Less grip and more tire wear; the track changes a lot."];
+  const sp=k=>{const v=ms.map(x=>x[k]).filter(x=>x!=null);return v.length>1?Math.max(...v)-Math.min(...v):null},st=sp("temp"),sw=sp("wind"),sr=sp("precip");
+  const conf=ms.length<2?["Limited","mid","Only one model available."]:(st<=3&&sw<=4&&sr<=20)?["High","ok","Models agree."]:(st<=6&&sw<=8&&sr<=40)?["Medium","mid","Models differ a little."]:["Low","bad","Models disagree - check again closer to race day."];
+  const t=(h,a)=>`<div class="vt ${a[1]}"><span>${h}</span><b>${esc(a[0])}</b><span>${esc(a[2])}</span></div>`;
+  return `<div class="card"><h2>Race day at a glance</h2><div class="vg">${t("Rain risk ("+f1(fc.precip)+"%)",rain)}${t("Wind ("+f1(fc.wind)+" mph from "+dirTxt(fc.dir)+")",wind)}${t("Temperature",temp)}${t("Forecast confidence",conf)}</div></div>`;
+}
+function predCard(r){
+  const p=r.predictions||[],W=(r.model&&r.model.weights)||[.45,.2,.2,.15],src=(r.model&&r.model.source)||"default",ty=TYPE[r.track_type]||"similar tracks",yr=new Date().getFullYear();
+  if(!p.length)return '<div class="card"><h2>Projected finishing order</h2><div class="note">No predictions yet. They appear once data/finishes.csv exists.</div></div>';
+  const pc=x=>Math.round(x*100)+"%";
+  return `<div class="card"><h2>Projected finishing order <span class="note">· active drivers only</span></h2>
+  <details open><summary>How to read this</summary><div class="lg">
+   <div><b>Pred</b> - projected finishing position (1 = projected winner).</div>
+   <div><b>Score</b> - the driver's expected average finish from the blend below. Lower is better; the list is sorted by it.</div>
+   <div><b>Track avg</b> - average finish at ${esc(r.track)} since 2022 (pulled toward the field average if the driver has few starts there). Weight ${pc(W[0])}.</div>
+   <div><b>Similar wx</b> - average finish here in similar weather (within 10°F and 8 mph of the forecast). Shows "–" until 20+ comparable results exist. Weight ${pc(W[1])}.</div>
+   <div><b>Type avg</b> - this season's (${yr}) average finish at ${esc(ty)}. Weight ${pc(W[2])}.</div>
+   <div><b>Recent 5</b> - average finish over the driver's last 5 races. Weight ${pc(W[3])}.</div>
+   <div><b>–</b> - no data for that factor; its weight is shared among the others.</div>
+   <div>Weights are the ${src=="tuned"?"tuned values from past-race testing":"starting defaults"}. Colors: <span class="sw h1"></span>top 10 <span class="sw h2"></span>11-20 <span class="sw h3"></span>21-30 <span class="sw h4"></span>31+</div></div></details>
+  <div class="sc" id="pt"></div><p><button id="pall"></button></p></div>`;
+}
+function drawPred(){
+  const p=R().predictions||[],hc=v=>v==null?"":v<=10?"h1":v<=20?"h2":v<=30?"h3":"h4",c=v=>`<td class="${hc(v)}">${f1(v)}</td>`,rows=showAll?p:p.slice(0,10),ty=TYPE[R().track_type]||"type";
+  $("pt").innerHTML=`<table><thead><tr><th>Pred</th><th>Driver</th><th>Score</th><th>Track avg</th><th>Similar wx</th><th>Type avg</th><th>Recent 5</th></tr></thead><tbody>${rows.map(x=>`<tr><td><b>${x.pred}</b></td><td>${esc(x.driver)}</td>${c(x.score)}${c(x.track)}${c(x.similar_wx)}${c(x.mile_half)}${c(x.form)}</tr>`).join("")}</tbody></table>`;
+  $("pall").textContent=showAll?"Show top 10 only":`Show all ${p.length} drivers`;$("pall").style.display=p.length>10?"":"none";
+}
+function drawReport(){
+  const el=$("rep");if(!el)return;
+  if(!MM){el.innerHTML='<h2>Model report card</h2><div class="note">Appears after the next weekly refresh (refresh-finishes). It tests the model on past races and then grades each weekend\'s prediction after the race.</div>';return}
+  const b=MM.backtest||{},L=(MM.live||[]).slice(-5).reverse(),n=(MM.live||[]).length,avg=n?((MM.live.reduce((a,x)=>a+x.mae,0))/n).toFixed(1):null;
+  el.innerHTML=`<h2>Model report card</h2>
+   <p>${b.races?`Tested on <b>${b.races}</b> past races (using only information available before each race): the projected order missed a driver's real finish by about <b>${f1(b.mae_used)}</b> places on average. Random guessing would miss by about ${f1(b.random_mae)}. Rank agreement: <b>${f1(b.spearman_default)}</b> (1 = perfect, 0 = no better than chance).`:"Not enough past races to test yet."}</p>
+   <p class="note">Factor weights in use: ${MM.weights_source=="tuned"?"tuned from the tests":"defaults (tuning starts once 30+ races can be tested)"} - Track ${Math.round(MM.weights[0]*100)}% · Similar weather ${Math.round(MM.weights[1]*100)}% · Type avg ${Math.round(MM.weights[2]*100)}% · Recent 5 ${Math.round(MM.weights[3]*100)}%.</p>
+   ${n?`<p><b>Live record</b>: ${n} graded race${n>1?"s":""}, average miss ${avg} places.</p><div class="sc"><table><thead><tr><th>Race</th><th>Date</th><th>Avg miss (places)</th><th>Top-10 hits</th><th>Winner was projected</th></tr></thead><tbody>${L.map(x=>`<tr><td>${esc(x.track)}</td><td>${esc(x.date)}</td><td>${x.mae}</td><td>${x.top10_hits}/10</td><td>${x.winner_pred_rank?"#"+x.winner_pred_rank:"–"}</td></tr>`).join("")}</tbody></table></div>`:'<p class="note">Live grading starts after the first logged race finishes.</p>'}`;
+}
 function show(){
   [...$("tabs").children].forEach((b,j)=>b.classList.toggle("on",cur==j));
-  const r=R(),fc=r.forecast||{},p=r.predictions||[];
+  const r=R(),fc=r.forecast||{};
   const when=tfmt(r.start_utc,r.tz,{weekday:"short",month:"short",day:"numeric",hour:"numeric",minute:"2-digit",timeZoneName:"short"});
   $("view").innerHTML=`
   <div class="card"><h2>${esc(r.track)} — green flag ${esc(when)}</h2>
    <div class="big"><div>Temp °F<b>${f1(fc.temp)}</b></div><div>Wind mph<b>${f1(fc.wind)}</b></div><div>Wind from<b>${dirTxt(fc.dir)}</b></div><div>Precip chance %<b>${f1(fc.precip)}</b></div><div>Hours out<b>${Math.round(r.lead_hours)}</b></div></div>
-   ${fc.precip>=40?'<p class="warn">High precipitation risk: expect delays/shortened race and more variance in finishes.</p>':""}
    <div class="note">Race averages are green flag → checkered. Models in blend: ${esc((r.models_used||[]).join(", ")||"none")}</div></div>
+  ${verdict(r)}
+  ${predCard(r)}
   <div class="card"><h2>Race-day timeline by model</h2>
    <div class="row" id="mt">${Object.entries(MET).map(([k,v])=>`<button data-m="${k}">${v}</button>`).join("")}</div>
    <div class="sc" id="tbl"></div>
    <h2 style="margin-top:16px">Models over time</h2><div class="sc" id="chart"></div><div class="leg" id="leg"></div></div>
   <div class="card"><h2>Track &amp; wind</h2><div id="trk"></div></div>
-  <div class="card"><h2>Predicted finishing order <span class="note">(active drivers only)</span></h2>${p.length?`<div class="sc"><table><thead><tr><th>Pred</th><th>Driver</th><th>Score</th><th>Track avg</th><th>Similar wx</th><th>1.5-mi avg</th><th>Recent 5</th></tr></thead><tbody>${p.map(x=>`<tr><td>${x.pred}</td><td>${esc(x.driver)}</td><td>${f1(x.score)}</td><td>${f1(x.track)}</td><td>${f1(x.similar_wx)}</td><td>${f1(x.mile_half)}</td><td>${f1(x.form)}</td></tr>`).join("")}</tbody></table></div>`:'<div class="note">No predictions yet. They appear once data/finishes.csv exists.</div>'}</div>`;
+  <div class="card" id="rep"></div>`;
   $("mt").onclick=e=>{if(e.target.dataset.m){metric=e.target.dataset.m;drawMetric()}};
-  modelSel="Blend";drawMetric();drawTrackUI();
+  const pb=$("pall");if(pb)pb.onclick=()=>{showAll=!showAll;drawPred()};
+  if($("pt"))drawPred();modelSel="Blend";drawMetric();drawTrackUI();drawReport();
 }
 function drawMetric(){[...$("mt").children].forEach(b=>b.classList.toggle("on",b.dataset.m==metric));drawTable();drawChart()}
 
@@ -99,18 +151,19 @@ function drawChart(){
 }
 
 function drawTrackUI(){
-  const r=R(),key="hd:"+r.id,verified=r.frontstretch_deg!=null,sv=store.get(key);
-  const h0=sv!=null?+sv:(r.frontstretch_deg??90);
+  const r=R(),key="hd:"+r.id,verified=r.frontstretch_deg!=null,osm=r.osm_heading_deg!=null,sv=store.get(key);
+  const h0=sv!=null?+sv:(r.frontstretch_deg??r.osm_heading_deg??90);
+  const msg=verified?'<p class="note">Heading set in config/races.json.</p>':osm?'<p class="note">Heading comes from OpenStreetMap map data (the direction cars run on the track\'s longest straight). If the front stretch is the other straight, press Flip, then save the final number in config/races.json as frontstretch_deg.</p>':'<p class="warn">Track orientation is not set yet - match the heading to the satellite view, then save it in config/races.json as frontstretch_deg.</p>';
   $("trk").innerHTML=`<div class="row"><label>Checkpoint <select id="ss">${r.steps.map((s,i)=>`<option value="${i}" ${i==stepIdx?"selected":""}>${esc(s.label)}</option>`).join("")}</select></label>
    <label>Model <select id="sm">${["Blend",...(r.models_used||[])].map(n=>`<option ${n==modelSel?"selected":""}>${esc(n)}</option>`).join("")}</select></label></div>
    <div class="grid"><div id="tsvg"></div><div>
    <div id="wtxt"></div>
    <p class="note" style="margin-top:14px">Front-stretch heading = compass direction cars travel on the front straight (0° = N, 90° = E).<br>
-   <input id="hd" type="range" min="0" max="359" value="${h0}"> <b id="hv"></b>°</p>
-   <p class="${verified?"note":"warn"}">${verified?"Heading set in config/races.json.":"Track orientation is not verified yet — match the heading to the satellite view, then save it in config/races.json as frontstretch_deg."}
-   <a href="https://www.google.com/maps/@${r.lat},${r.lon},16z/data=!3m1!1e3" target="_blank" rel="noopener">Open satellite map</a></p></div></div>`;
+   <input id="hd" type="range" min="0" max="359" value="${h0}"> <b id="hv"></b>° <button id="flip">Flip front/back stretch</button></p>
+   ${msg}<p class="note"><a href="https://www.google.com/maps/@${r.lat},${r.lon},16z/data=!3m1!1e3" target="_blank" rel="noopener">Open satellite map</a></p></div></div>`;
   $("ss").onchange=e=>{stepIdx=+e.target.value;drawTrack()};$("sm").onchange=e=>{modelSel=e.target.value;drawTrack()};
-  $("hd").oninput=e=>{store.set(key,e.target.value);drawTrack()};drawTrack();
+  $("hd").oninput=e=>{store.set(key,e.target.value);drawTrack()};
+  $("flip").onclick=()=>{const v=(+$("hd").value+180)%360;$("hd").value=v;store.set(key,v);drawTrack()};drawTrack();
 }
 
 function drawTrack(){
