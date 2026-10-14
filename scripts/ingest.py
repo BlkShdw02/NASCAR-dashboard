@@ -1,6 +1,7 @@
 """Weather ingest + finish prediction -> data/latest.json. Run on a schedule."""
 import json, os, re, sys, math, datetime as dt, zoneinfo
 import numpy as np, requests, pandas as pd
+sys.path.insert(0, os.path.dirname(__file__)); import model
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 UA = {"User-Agent": "nascar-dashboard (malik.i.bryant@gmail.com)"}  # NWS requires a UA
@@ -103,48 +104,21 @@ def race_weather(r, start, lead):
     fc = {"temp": mean("temp"), "wind": mean("wind"), "precip": mean("precip"), "dir": round(math.degrees(math.atan2(sn, cs)) % 360) if (sn or cs) else None}
     return list(hourly), steps, series, fc
 
-def clean_name(n): return re.sub(r"\s*\(.*?\)|[#*]", "", str(n)).strip()
-def nkey(n):
-    n = re.sub(r"\b(jr|sr|ii|iii|iv)\b\.?", "", clean_name(n).lower()); return re.sub(r"[^a-z]", "", n)
-
-def predict(r, fc, W=(0.45, 0.20, 0.20, 0.15)):
-    # finishes.csv: date,track,series,track_type,driver,finish[,temp_f,wind_mph]
-    f = pd.read_csv(os.path.join(ROOT, "data", "finishes.csv")); f["date"] = pd.to_datetime(f["date"])
-    f = f[(f.series == r["series"]) & (f.date >= "2022-01-01")].copy(); f["key"] = f.driver.map(nkey)
-    disp = f.sort_values("date").groupby("key").driver.last().map(clean_name).to_dict()
-    # ACTIVE drivers: raced in at least 2 of the 5 most recent races in the data; config/entry_list.txt overrides
-    last_races = f[["date", "track"]].drop_duplicates().sort_values("date").tail(5)
-    hits = f.merge(last_races, on=["date", "track"]).drop_duplicates(["key", "date", "track"]).groupby("key").size()
-    act = set(hits[hits >= 2].index)
-    entry = os.path.join(ROOT, "config", "entry_list.txt")
-    if os.path.exists(entry):
-        names = [l.strip() for l in open(entry) if l.strip() and not l.startswith("#")]
-        if names:
-            act = {nkey(n) for n in names}
-            for n in names: disp.setdefault(nkey(n), n)
-    here = f[f.track == r["track"]]; mile = f[(f.track_type == r["track_type"]) & (f.date.dt.year == dt.date.today().year)]
-    sim = here.iloc[0:0]
-    if fc["temp"] is not None and {"temp_f", "wind_mph"} <= set(here.columns):
-        s2 = here[(abs(here.temp_f - fc["temp"]) <= 10) & (abs(here.wind_mph - (fc["wind"] or 0)) <= 8)]
-        if len(s2) >= 20: sim = s2
-    g = lambda d: d.groupby("key").finish.agg(["mean", "count"]) if len(d) else None
-    T, S, M, R = g(here), g(sim), g(mile), g(f.sort_values("date").groupby("key").tail(5))
-    fm = here.finish.mean() if len(here) else 20; rows = []
-    for k in sorted(act):
-        v = [None]
-        if T is not None and k in T.index:
-            n = T.loc[k, "count"]; v[0] = (T.loc[k, "mean"] * n + fm * 3) / (n + 3)  # shrink small samples
-        v += [X.loc[k, "mean"] if X is not None and k in X.index else None for X in (S, M, R)]
-        w = [(x, wt) for x, wt in zip(v, W) if x is not None]
-        score = sum(x * wt for x, wt in w) / sum(wt for _, wt in w) if w else fm
-        rows.append({"driver": disp.get(k, k), "score": round(float(score), 2), "track": v[0], "similar_wx": v[1], "mile_half": v[2], "form": v[3]})
-    rows.sort(key=lambda x: x["score"])
+def predict(r, fc, start):
+    f = model.load_finishes(os.path.join(ROOT, "data", "finishes.csv")); W, src = model.load_weights(ROOT)
+    keys, extra = model.active_keys(f, os.path.join(ROOT, "config", "entry_list.txt")); disp = model.display_names(f)
+    tab = model.factor_table(f, r["track"], r["track_type"], pd.Timestamp(start.date()), fc["temp"], fc["wind"], sorted(keys))
+    score = model.combine(tab, W); nn = lambda v: None if pd.isna(v) else round(float(v), 2)
+    rows = sorted(({"driver": disp.get(k, extra.get(k, k)), "score": round(float(score[k]), 2), "track": nn(tab.loc[k, "track"]),
+                    "similar_wx": nn(tab.loc[k, "similar_wx"]), "mile_half": nn(tab.loc[k, "mile_half"]), "form": nn(tab.loc[k, "form"])}
+                   for k in tab.index), key=lambda x: x["score"])
     for i, x in enumerate(rows, 1): x["pred"] = i
-    return rows
+    return rows, list(W), src
 
 def main():
     cfg = json.load(open(os.path.join(ROOT, "config", "races.json")))
-    now = dt.datetime.now(dt.timezone.utc); out = []
+    orient = json.load(open(os.path.join(ROOT, "config", "orientation.json"))) if os.path.exists(os.path.join(ROOT, "config", "orientation.json")) else {}
+    now = dt.datetime.now(dt.timezone.utc); out = []; log = []
     fin = os.path.exists(os.path.join(ROOT, "data", "finishes.csv"))
     for race in cfg["races"]:
         r = {**cfg["tracks"][race["track"]], **race}   # merge track info (lat/lon/tz/track_type) into race
@@ -153,10 +127,19 @@ def main():
         lead = (start - now).total_seconds() / 3600
         if lead > 24 * 10: continue  # beyond forecast horizon
         used, steps, series, fc = race_weather(r, start, lead)
+        preds, W, src = predict(r, fc, start) if fin else ([], list(model.DEFAULT_W), "default")
+        if lead > 0:   # keep the last PRE-race snapshot for grading
+            log += [{"race_id": r["id"], "track": r["track"], "race_date": start.astimezone(zoneinfo.ZoneInfo("America/New_York")).date().isoformat(),
+                     "driver": x["driver"], "pred": x["pred"], "score": x["score"], "generated_utc": now.isoformat()} for x in preds]
         out.append({"id": r["id"], "track": r["track"], "tz": r["tz"], "track_type": r["track_type"], "lat": r["lat"], "lon": r["lon"],
-                    "frontstretch_deg": r.get("frontstretch_deg"), "start_utc": start.isoformat(), "lead_hours": round(lead, 1),
-                    "models_used": used, "steps": steps, "series": series, "forecast": fc,
-                    "predictions": predict(r, fc) if fin else []})
+                    "frontstretch_deg": r.get("frontstretch_deg"), "osm_heading_deg": (orient.get(r["track"]) or {}).get("heading_deg"),
+                    "start_utc": start.isoformat(), "lead_hours": round(lead, 1), "models_used": used, "steps": steps, "series": series,
+                    "forecast": fc, "model": {"weights": W, "source": src}, "predictions": preds})
     json.dump({"generated_utc": now.isoformat(), "races": out}, open(os.path.join(ROOT, "data", "latest.json"), "w"), indent=1, default=str)
+    if log:
+        lp = os.path.join(ROOT, "data", "predictions_log.csv"); new = pd.DataFrame(log)
+        old = pd.read_csv(lp) if os.path.exists(lp) else pd.DataFrame()
+        if len(old): old = old[~old.race_id.isin(new.race_id.unique())]
+        pd.concat([old, new], ignore_index=True).to_csv(lp, index=False)
 
 if __name__ == "__main__": main()
