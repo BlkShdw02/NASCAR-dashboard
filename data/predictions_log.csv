@@ -38,40 +38,40 @@ race_id,track,race_date,driver,pred,score,generated_utc
 2026-10-18-phoenix,Phoenix Raceway,2026-10-18,Cole Custer,37,26.16,2026-10-18T17:10:00.649530+00:00
 2026-10-18-phoenix,Phoenix Raceway,2026-10-18,Cody Ware,38,26.67,2026-10-18T17:10:00.649530+00:00
 2026-10-18-phoenix,Phoenix Raceway,2026-10-18,Chad Finchum,39,28.48,2026-10-18T17:10:00.649530+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Carson Hocevar,1,10.72,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Chase Elliott,2,11.83,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Alex Bowman,3,12.71,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Daniel Suarez,4,14.18,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Denny Hamlin,5,14.96,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Todd Gilliland,6,15.04,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Austin Cindric,7,15.42,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Ross Chastain,8,15.46,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Tyler Reddick,9,15.51,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Chris Buescher,10,16.74,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Ricky Stenhouse Jr.,11,16.81,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Zane Smith,12,17.06,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Christopher Bell,13,17.56,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Corey Heim,14,17.8,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Noah Gragson,15,18.29,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,William Byron,16,18.67,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Erik Jones,17,18.71,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Chase Briscoe,18,18.83,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Shane van Gisbergen,19,19.19,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Austin Dillon,20,19.94,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Ryan Blaney,21,20.72,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Ty Dillon,22,20.79,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Brad Keselowski,23,21.75,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Ryan Preece,24,21.87,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Kyle Larson,25,21.93,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Bubba Wallace,26,22.3,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,A.J. Allmendinger,27,22.48,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Austin Hill,28,22.65,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Michael McDowell,29,22.76,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Riley Herbst,30,22.76,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,John Hunter Nemechek,31,23.19,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Connor Zilisch,32,24.24,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Cole Custer,33,25.21,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Ty Gibbs,34,25.28,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Cody Ware,35,25.37,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Josh Berry,36,27.88,2026-10-20T14:50:31.115314+00:00
-2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Joey Logano,37,28.41,2026-10-20T14:50:31.115314+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Carson Hocevar,1,10.72,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Chase Elliott,2,11.83,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Alex Bowman,3,12.71,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Daniel Suarez,4,14.18,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Denny Hamlin,5,14.96,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Todd Gilliland,6,15.04,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Austin Cindric,7,15.42,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Ross Chastain,8,15.46,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Tyler Reddick,9,15.51,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Chris Buescher,10,16.74,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Ricky Stenhouse Jr.,11,16.81,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Zane Smith,12,17.06,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Christopher Bell,13,17.56,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Corey Heim,14,17.8,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Noah Gragson,15,18.29,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,William Byron,16,18.67,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Erik Jones,17,18.71,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Chase Briscoe,18,18.83,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Shane van Gisbergen,19,19.19,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Austin Dillon,20,19.94,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Ryan Blaney,21,20.72,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Ty Dillon,22,20.79,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Brad Keselowski,23,21.75,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Ryan Preece,24,21.87,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Kyle Larson,25,21.93,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Bubba Wallace,26,22.3,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,A.J. Allmendinger,27,22.48,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Austin Hill,28,22.65,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Michael McDowell,29,22.76,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Riley Herbst,30,22.76,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,John Hunter Nemechek,31,23.19,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Connor Zilisch,32,24.24,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Cole Custer,33,25.21,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Ty Gibbs,34,25.28,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Cody Ware,35,25.37,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Josh Berry,36,27.88,2026-10-20T19:03:26.967707+00:00
+2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Joey Logano,37,28.41,2026-10-20T19:03:26.967707+00:00
