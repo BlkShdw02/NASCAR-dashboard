@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-19T09:25:55.303565+00:00",
+ "updated": "2026-10-26T15:37:51.960157+00:00",
  "weights": [
   0.45,
   0.2,
@@ -8,11 +8,22 @@
  ],
  "weights_source": "default",
  "backtest": {
-  "races": 49,
-  "mae_default": 9.54531915622141,
-  "mae_used": 9.54531915622141,
-  "spearman_default": 0.3633827356561893,
+  "races": 50,
+  "mae_default": 9.564142502826712,
+  "mae_used": 9.564142502826712,
+  "spearman_default": 0.3608376982972618,
   "random_mae": 12.47
  },
- "live": []
+ "live": [
+  {
+   "race_id": "2026-10-18-phoenix",
+   "track": "Phoenix Raceway",
+   "date": "2026-10-18",
+   "drivers": 37,
+   "mae": 10.97,
+   "spearman": 0.184,
+   "top10_hits": 3,
+   "winner_pred_rank": 6
+  }
+ ]
 }
