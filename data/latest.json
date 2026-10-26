@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-10-26T10:01:11.630083+00:00",
+ "generated_utc": "2026-10-26T17:10:58.036301+00:00",
  "races": [
   {
    "id": "2026-11-01-martinsville",
@@ -11,7 +11,7 @@
    "frontstretch_deg": null,
    "osm_heading_deg": null,
    "start_utc": "2026-11-01T19:00:00+00:00",
-   "lead_hours": 153.0,
+   "lead_hours": 145.8,
    "models_used": [
     "GFS",
     "ECMWF",
@@ -25,29 +25,29 @@
      "offset_h": -3.0,
      "time_utc": "2026-11-01T16:00:00+00:00",
      "blend": {
-      "temp": 64.1,
-      "wind": 2.7,
-      "precip": 31.3,
-      "dir": 74.0
+      "temp": 63.2,
+      "wind": 3.3,
+      "precip": 25.6,
+      "dir": 73.0
      },
      "models": {
       "GFS": {
-       "temp": 58.4,
-       "wind": 4.1,
-       "precip": 38.0,
-       "dir": 29.0
+       "temp": 56.4,
+       "wind": 6.6,
+       "precip": 18.0,
+       "dir": 35.0
       },
       "ECMWF": {
        "temp": 66.5,
        "wind": 2.1,
-       "precip": 25.0,
+       "precip": 29.0,
        "dir": 103.0
       },
       "NBM": {
-       "temp": 65.7,
+       "temp": 64.1,
        "wind": 2.7,
-       "precip": 30.0,
-       "dir": 67.0
+       "precip": 22.0,
+       "dir": 60.0
       },
       "NDFD": {
        "temp": 65.0,
@@ -63,29 +63,29 @@
      "offset_h": -1.0,
      "time_utc": "2026-11-01T18:00:00+00:00",
      "blend": {
-      "temp": 66.7,
-      "wind": 3.8,
-      "precip": 34.0,
-      "dir": 93.0
+      "temp": 66.0,
+      "wind": 4.3,
+      "precip": 27.6,
+      "dir": 88.0
      },
      "models": {
       "GFS": {
-       "temp": 58.9,
-       "wind": 4.6,
-       "precip": 42.0,
-       "dir": 29.0
+       "temp": 57.8,
+       "wind": 7.0,
+       "precip": 26.0,
+       "dir": 45.0
       },
       "ECMWF": {
        "temp": 71.1,
        "wind": 4.0,
-       "precip": 31.0,
+       "precip": 29.0,
        "dir": 133.0
       },
       "NBM": {
-       "temp": 67.6,
+       "temp": 66.0,
        "wind": 3.6,
-       "precip": 30.0,
-       "dir": 100.0
+       "precip": 22.0,
+       "dir": 80.0
       },
       "NDFD": {
        "temp": 68.0,
@@ -101,29 +101,29 @@
      "offset_h": 0.0,
      "time_utc": "2026-11-01T19:00:00+00:00",
      "blend": {
-      "temp": 67.3,
-      "wind": 3.7,
-      "precip": 33.4,
-      "dir": 89.0
+      "temp": 66.6,
+      "wind": 4.2,
+      "precip": 28.9,
+      "dir": 86.0
      },
      "models": {
       "GFS": {
-       "temp": 59.1,
-       "wind": 4.4,
-       "precip": 43.0,
-       "dir": 30.0
+       "temp": 58.2,
+       "wind": 7.0,
+       "precip": 29.0,
+       "dir": 45.0
       },
       "ECMWF": {
        "temp": 71.2,
        "wind": 3.7,
-       "precip": 31.0,
+       "precip": 29.0,
        "dir": 128.0
       },
       "NBM": {
-       "temp": 68.7,
+       "temp": 67.0,
        "wind": 3.6,
-       "precip": 27.0,
-       "dir": 93.0
+       "precip": 24.0,
+       "dir": 77.0
       },
       "NDFD": {
        "temp": 69.0,
@@ -139,29 +139,29 @@
      "offset_h": 1.5,
      "time_utc": "2026-11-01T20:30:00+00:00",
      "blend": {
-      "temp": 67.3,
-      "wind": 3.1,
-      "precip": 33.6,
-      "dir": 80.0
+      "temp": 66.7,
+      "wind": 3.7,
+      "precip": 29.6,
+      "dir": 78.0
      },
      "models": {
       "GFS": {
-       "temp": 59.2,
-       "wind": 4.1,
-       "precip": 44.5,
-       "dir": 33.0
+       "temp": 58.4,
+       "wind": 6.8,
+       "precip": 33.5,
+       "dir": 42.0
       },
       "ECMWF": {
        "temp": 69.6,
        "wind": 3.0,
-       "precip": 30.5,
+       "precip": 28.0,
        "dir": 105.0
       },
       "NBM": {
-       "temp": 69.5,
+       "temp": 67.8,
        "wind": 2.9,
-       "precip": 27.0,
-       "dir": 84.0
+       "precip": 24.0,
+       "dir": 71.0
       },
       "NDFD": {
        "temp": 70.0,
@@ -178,34 +178,34 @@
      "time_utc": "2026-11-01T22:30:00+00:00",
      "blend": {
       "temp": 64.1,
-      "wind": 2.8,
-      "precip": 33.1,
-      "dir": 53.0
+      "wind": 3.1,
+      "precip": 30.4,
+      "dir": 55.0
      },
      "models": {
       "GFS": {
-       "temp": 58.5,
-       "wind": 4.1,
-       "precip": 46.5,
-       "dir": 33.0
+       "temp": 57.7,
+       "wind": 6.5,
+       "precip": 37.5,
+       "dir": 26.0
       },
       "ECMWF": {
        "temp": 66.7,
        "wind": 2.9,
-       "precip": 28.5,
+       "precip": 27.5,
        "dir": 58.0
       },
       "NBM": {
-       "temp": 66.0,
-       "wind": 1.6,
-       "precip": 27.0,
-       "dir": 65.0
+       "temp": 64.5,
+       "wind": 1.8,
+       "precip": 24.0,
+       "dir": 50.0
       },
       "NDFD": {
-       "temp": null,
-       "wind": null,
-       "precip": null,
-       "dir": null
+       "temp": 67.0,
+       "wind": 1.5,
+       "precip": 35.0,
+       "dir": 90.0
       }
      }
     }
@@ -229,64 +229,64 @@
     "models": {
      "GFS": {
       "temp": [
-       57.3,
-       57.6,
-       58.0,
-       58.4,
-       58.6,
-       58.9,
-       59.1,
-       59.2,
-       59.1,
-       58.7,
-       58.2,
+       54.6,
+       55.0,
+       55.7,
+       56.4,
+       57.2,
        57.8,
-       57.6
+       58.2,
+       58.4,
+       58.4,
+       58.0,
+       57.4,
+       56.9,
+       56.6
       ],
       "wind": [
-       4.9,
-       4.3,
-       4.0,
-       4.1,
-       4.4,
-       4.6,
-       4.4,
-       4.2,
-       4.0,
-       4.0,
-       4.2,
-       4.4,
-       4.6
+       5.9,
+       6.2,
+       6.3,
+       6.6,
+       6.8,
+       7.0,
+       7.0,
+       6.8,
+       6.7,
+       6.5,
+       6.5,
+       6.6,
+       6.2
       ],
       "dir": [
-       51.0,
-       43.0,
-       34.0,
-       29.0,
-       30.0,
        29.0,
        30.0,
        32.0,
-       34.0,
-       34.0,
-       32.0,
-       30.0,
-       29.0
+       35.0,
+       41.0,
+       45.0,
+       45.0,
+       44.0,
+       40.0,
+       31.0,
+       22.0,
+       18.0,
+       26.0
       ],
       "precip": [
+       18.0,
+       16.0,
+       16.0,
+       18.0,
+       22.0,
+       26.0,
        29.0,
        32.0,
        35.0,
+       37.0,
        38.0,
-       40.0,
-       42.0,
-       43.0,
-       44.0,
-       45.0,
-       46.0,
-       47.0,
-       48.0,
-       48.0
+       39.0,
+       41.0
       ]
      },
      "ECMWF": {
@@ -336,36 +336,36 @@
        40.0
       ],
       "precip": [
-       15.0,
-       19.0,
-       22.0,
-       25.0,
+       26.0,
+       27.0,
+       28.0,
        29.0,
-       31.0,
-       31.0,
-       31.0,
-       30.0,
+       29.0,
+       29.0,
        29.0,
        28.0,
+       28.0,
+       28.0,
        27.0,
-       28.0
+       27.0,
+       27.0
       ]
      },
      "NBM": {
       "temp": [
-       57.1,
-       60.8,
-       64.0,
-       65.7,
-       66.8,
-       67.6,
-       68.7,
-       69.6,
-       69.4,
-       67.5,
-       64.5,
-       62.0,
-       60.5
+       55.3,
+       59.2,
+       62.4,
+       64.1,
+       65.2,
+       66.0,
+       67.0,
+       67.9,
+       67.8,
+       66.0,
+       63.1,
+       60.7,
+       59.4
       ],
       "wind": [
        0.4,
@@ -378,38 +378,38 @@
        3.1,
        2.7,
        2.0,
-       1.3,
-       0.7,
-       0.2
+       1.6,
+       0.9,
+       0.4
       ],
       "dir": [
        37.0,
        43.0,
        50.0,
-       67.0,
-       83.0,
-       100.0,
-       93.0,
-       87.0,
-       80.0,
-       70.0,
        60.0,
-       50.0,
-       50.0
+       70.0,
+       80.0,
+       77.0,
+       73.0,
+       70.0,
+       57.0,
+       43.0,
+       30.0,
+       37.0
       ],
       "precip": [
-       30.0,
-       30.0,
-       30.0,
-       30.0,
-       30.0,
-       30.0,
-       27.0,
-       27.0,
-       27.0,
-       27.0,
-       27.0,
-       27.0,
+       22.0,
+       22.0,
+       22.0,
+       22.0,
+       22.0,
+       22.0,
+       24.0,
+       24.0,
+       24.0,
+       24.0,
+       24.0,
+       24.0,
        32.0
       ]
      },
@@ -424,10 +424,10 @@
        69.0,
        70.0,
        70.0,
-       null,
-       null,
-       null,
-       null
+       68.0,
+       66.0,
+       63.0,
+       61.0
       ],
       "wind": [
        1.0,
@@ -439,10 +439,10 @@
        3.0,
        3.0,
        2.0,
-       null,
-       null,
-       null,
-       null
+       2.0,
+       1.0,
+       1.0,
+       1.0
       ],
       "dir": [
        45.0,
@@ -454,10 +454,10 @@
        90.0,
        90.0,
        90.0,
-       null,
-       null,
-       null,
-       null
+       90.0,
+       90.0,
+       90.0,
+       90.0
       ],
       "precip": [
        34.0,
@@ -469,81 +469,81 @@
        35.0,
        35.0,
        35.0,
-       null,
-       null,
-       null,
-       null
+       35.0,
+       35.0,
+       40.0,
+       40.0
       ]
      }
     },
     "blend": {
      "temp": [
-      57.1,
-      59.9,
-      62.3,
-      64.1,
-      65.7,
-      66.7,
-      67.3,
-      67.5,
-      67.1,
-      65.0,
-      63.1,
-      61.6,
-      60.7
+      55.9,
+      58.8,
+      61.4,
+      63.2,
+      64.9,
+      66.0,
+      66.6,
+      66.9,
+      66.5,
+      65.1,
+      63.2,
+      61.3,
+      60.2
      ],
      "wind": [
-      2.4,
-      2.4,
-      2.4,
-      2.7,
-      3.5,
-      3.8,
-      3.7,
+      2.6,
+      2.9,
+      2.9,
       3.3,
-      2.8,
-      2.8,
-      2.8,
-      2.8,
+      4.0,
+      4.3,
+      4.2,
+      3.9,
+      3.4,
+      3.2,
+      3.0,
+      2.9,
       2.7
      ],
      "dir": [
-      35.0,
-      39.0,
-      58.0,
-      74.0,
+      30.0,
+      36.0,
+      57.0,
+      73.0,
+      83.0,
+      88.0,
       86.0,
-      93.0,
-      89.0,
-      84.0,
-      77.0,
-      60.0,
-      47.0,
-      40.0,
-      41.0
+      82.0,
+      75.0,
+      62.0,
+      49.0,
+      42.0,
+      46.0
      ],
      "precip": [
-      26.7,
-      28.4,
-      29.9,
-      31.3,
-      32.8,
-      34.0,
-      33.4,
-      33.6,
-      33.6,
-      33.1,
-      33.1,
-      33.0,
-      35.2
+      24.8,
+      24.7,
+      24.9,
+      25.6,
+      26.5,
+      27.6,
+      28.9,
+      29.3,
+      30.0,
+      30.4,
+      30.4,
+      31.7,
+      34.4
      ]
     }
    },
    "forecast": {
-    "temp": 66.2,
-    "wind": 3.2,
-    "precip": 33.4,
-    "dir": 74
+    "temp": 65.8,
+    "wind": 3.7,
+    "precip": 29.6,
+    "dir": 73
    },
    "model": {
     "weights": [
@@ -557,335 +557,335 @@
    "predictions": [
     {
      "driver": "Ryan Blaney",
-     "score": 6.8,
+     "score": 6.48,
      "track": 8.04,
-     "similar_wx": 5.4,
+     "similar_wx": 5.0,
      "mile_half": 6.0,
-     "form": 6.0,
+     "form": 4.4,
      "pred": 1
     },
     {
-     "driver": "Chase Elliott",
-     "score": 7.68,
-     "track": 9.71,
-     "similar_wx": 5.8,
-     "mile_half": 1.0,
-     "form": 13.0,
+     "driver": "Joey Logano",
+     "score": 7.41,
+     "track": 8.88,
+     "similar_wx": 6.14,
+     "mile_half": 3.0,
+     "form": 10.6,
      "pred": 2
     },
     {
-     "driver": "Kyle Larson",
-     "score": 7.83,
-     "track": 9.04,
-     "similar_wx": 2.6,
-     "mile_half": 9.0,
-     "form": 9.6,
+     "driver": "Chase Elliott",
+     "score": 7.52,
+     "track": 9.71,
+     "similar_wx": 4.71,
+     "mile_half": 1.0,
+     "form": 13.4,
      "pred": 3
     },
     {
-     "driver": "Denny Hamlin",
-     "score": 7.95,
-     "track": 12.54,
-     "similar_wx": 5.2,
-     "mile_half": 2.0,
-     "form": 5.8,
+     "driver": "Kyle Larson",
+     "score": 8.08,
+     "track": 9.04,
+     "similar_wx": 3.86,
+     "mile_half": 9.0,
+     "form": 9.6,
      "pred": 4
     },
     {
-     "driver": "Joey Logano",
-     "score": 8.39,
-     "track": 8.88,
-     "similar_wx": 6.4,
-     "mile_half": 3.0,
-     "form": 16.8,
+     "driver": "Denny Hamlin",
+     "score": 9.49,
+     "track": 12.54,
+     "similar_wx": 9.0,
+     "mile_half": 2.0,
+     "form": 11.0,
      "pred": 5
     },
     {
      "driver": "William Byron",
-     "score": 10.51,
+     "score": 10.4,
      "track": 11.29,
-     "similar_wx": 11.8,
+     "similar_wx": 9.29,
      "mile_half": 5.0,
-     "form": 13.8,
+     "form": 16.4,
      "pred": 6
     },
     {
-     "driver": "Chase Briscoe",
-     "score": 12.93,
-     "track": 14.04,
-     "similar_wx": 9.6,
-     "mile_half": 14.0,
-     "form": 12.6,
+     "driver": "Christopher Bell",
+     "score": 11.59,
+     "track": 14.46,
+     "similar_wx": 12.86,
+     "mile_half": 7.0,
+     "form": 7.4,
      "pred": 7
     },
     {
-     "driver": "Christopher Bell",
-     "score": 13.08,
-     "track": 14.46,
-     "similar_wx": 15.2,
-     "mile_half": 7.0,
-     "form": 14.2,
+     "driver": "Chase Briscoe",
+     "score": 13.39,
+     "track": 14.04,
+     "similar_wx": 14.14,
+     "mile_half": 14.0,
+     "form": 9.6,
      "pred": 8
     },
     {
      "driver": "Ross Chastain",
-     "score": 13.93,
+     "score": 13.48,
      "track": 11.71,
-     "similar_wx": 9.0,
+     "similar_wx": 9.29,
      "mile_half": 16.0,
-     "form": 24.4,
+     "form": 21.0,
      "pred": 9
     },
     {
      "driver": "Ryan Preece",
-     "score": 13.93,
+     "score": 13.9,
      "track": 13.95,
-     "similar_wx": 11.25,
+     "similar_wx": 10.5,
      "mile_half": 12.0,
-     "form": 20.0,
+     "form": 20.8,
      "pred": 10
     },
     {
      "driver": "Ty Gibbs",
-     "score": 15.97,
+     "score": 14.5,
      "track": 17.41,
-     "similar_wx": 20.2,
+     "similar_wx": 16.71,
      "mile_half": 4.0,
-     "form": 22.0,
+     "form": 16.8,
      "pred": 11
     },
     {
-     "driver": "Shane van Gisbergen",
-     "score": 17.04,
-     "track": 18.22,
-     "similar_wx": 23.0,
-     "mile_half": 11.0,
-     "form": 13.6,
+     "driver": "Corey Heim",
+     "score": 16.2,
+     "track": null,
+     "similar_wx": null,
+     "mile_half": null,
+     "form": 16.2,
      "pred": 12
     },
     {
-     "driver": "Austin Cindric",
-     "score": 17.14,
-     "track": 18.54,
-     "similar_wx": 24.6,
-     "mile_half": 8.0,
-     "form": 15.2,
+     "driver": "Shane van Gisbergen",
+     "score": 16.26,
+     "track": 18.22,
+     "similar_wx": 17.75,
+     "mile_half": 11.0,
+     "form": 15.4,
      "pred": 13
     },
     {
-     "driver": "Alex Bowman",
-     "score": 17.22,
-     "track": 18.25,
-     "similar_wx": 14.75,
-     "mile_half": null,
-     "form": 17.4,
+     "driver": "Austin Cindric",
+     "score": 16.52,
+     "track": 18.54,
+     "similar_wx": 20.86,
+     "mile_half": 8.0,
+     "form": 16.0,
      "pred": 14
     },
     {
      "driver": "Tyler Reddick",
-     "score": 17.32,
+     "score": 16.7,
      "track": 19.88,
-     "similar_wx": 22.4,
+     "similar_wx": 19.71,
      "mile_half": 15.0,
-     "form": 6.0,
+     "form": 5.4,
      "pred": 15
     },
     {
-     "driver": "Corey Heim",
-     "score": 17.8,
-     "track": null,
-     "similar_wx": null,
-     "mile_half": null,
-     "form": 17.8,
+     "driver": "Josh Berry",
+     "score": 17.28,
+     "track": 18.69,
+     "similar_wx": 18.6,
+     "mile_half": 10.0,
+     "form": 21.0,
      "pred": 16
     },
     {
-     "driver": "Bubba Wallace",
-     "score": 18.16,
-     "track": 14.96,
-     "similar_wx": 8.4,
-     "mile_half": 36.0,
-     "form": 17.0,
+     "driver": "Alex Bowman",
+     "score": 18.6,
+     "track": 18.25,
+     "similar_wx": 16.4,
+     "mile_half": null,
+     "form": 22.6,
      "pred": 17
     },
     {
      "driver": "Daniel Suarez",
-     "score": 18.86,
+     "score": 19.0,
      "track": 21.38,
-     "similar_wx": 19.0,
+     "similar_wx": 19.57,
      "mile_half": 20.0,
-     "form": 9.6,
+     "form": 9.8,
      "pred": 18
     },
     {
-     "driver": "Josh Berry",
-     "score": 18.97,
-     "track": 18.69,
-     "similar_wx": 24.33,
-     "mile_half": 10.0,
-     "form": 24.6,
+     "driver": "Todd Gilliland",
+     "score": 19.32,
+     "track": 17.96,
+     "similar_wx": 17.0,
+     "mile_half": 23.0,
+     "form": 21.6,
      "pred": 19
     },
     {
-     "driver": "Chris Buescher",
-     "score": 19.3,
-     "track": 19.54,
-     "similar_wx": 21.4,
-     "mile_half": 19.0,
-     "form": 16.2,
+     "driver": "Bubba Wallace",
+     "score": 19.46,
+     "track": 14.96,
+     "similar_wx": 13.71,
+     "mile_half": 36.0,
+     "form": 18.6,
      "pred": 20
     },
     {
      "driver": "Brad Keselowski",
-     "score": 19.84,
+     "score": 19.52,
      "track": 21.54,
-     "similar_wx": 23.8,
+     "similar_wx": 21.71,
      "mile_half": 13.0,
-     "form": 18.6,
+     "form": 19.2,
      "pred": 21
     },
     {
-     "driver": "Todd Gilliland",
-     "score": 19.94,
-     "track": 17.96,
-     "similar_wx": 17.4,
-     "mile_half": 23.0,
-     "form": 25.2,
+     "driver": "Chris Buescher",
+     "score": 19.96,
+     "track": 19.54,
+     "similar_wx": 22.14,
+     "mile_half": 19.0,
+     "form": 19.6,
      "pred": 22
     },
     {
      "driver": "Carson Hocevar",
-     "score": 19.96,
+     "score": 20.41,
      "track": 21.84,
-     "similar_wx": 20.33,
+     "similar_wx": 21.8,
      "mile_half": 17.0,
-     "form": 17.8,
+     "form": 18.8,
      "pred": 23
     },
     {
      "driver": "Michael McDowell",
-     "score": 20.31,
+     "score": 20.62,
      "track": 20.88,
-     "similar_wx": 20.4,
+     "similar_wx": 20.57,
      "mile_half": 18.0,
-     "form": 21.6,
+     "form": 23.4,
      "pred": 24
     },
     {
      "driver": "Austin Dillon",
-     "score": 21.17,
+     "score": 21.72,
      "track": 18.96,
-     "similar_wx": 20.8,
+     "similar_wx": 20.71,
      "mile_half": 25.0,
-     "form": 23.2,
+     "form": 27.0,
      "pred": 25
     },
     {
      "driver": "Erik Jones",
-     "score": 21.5,
+     "score": 22.11,
      "track": 21.96,
-     "similar_wx": 23.6,
+     "similar_wx": 24.71,
      "mile_half": 21.0,
-     "form": 18.0,
+     "form": 20.6,
      "pred": 26
     },
     {
-     "driver": "Ricky Stenhouse Jr.",
-     "score": 23.19,
-     "track": 21.54,
-     "similar_wx": 19.8,
-     "mile_half": 30.0,
-     "form": 23.6,
+     "driver": "Connor Zilisch",
+     "score": 24.0,
+     "track": 20.63,
+     "similar_wx": 26.0,
+     "mile_half": 26.0,
+     "form": 28.8,
      "pred": 27
     },
     {
-     "driver": "Connor Zilisch",
-     "score": 23.35,
-     "track": 20.63,
-     "similar_wx": null,
-     "mile_half": 26.0,
-     "form": 28.0,
+     "driver": "Ricky Stenhouse Jr.",
+     "score": 24.02,
+     "track": 21.54,
+     "similar_wx": 22.29,
+     "mile_half": 30.0,
+     "form": 25.8,
      "pred": 28
     },
     {
      "driver": "A.J. Allmendinger",
-     "score": 24.15,
+     "score": 24.34,
      "track": 23.65,
-     "similar_wx": 24.33,
+     "similar_wx": 25.6,
      "mile_half": 27.0,
-     "form": 21.6,
+     "form": 21.2,
      "pred": 29
     },
     {
      "driver": "Noah Gragson",
-     "score": 24.52,
+     "score": 24.41,
      "track": 22.95,
-     "similar_wx": 23.0,
+     "similar_wx": 24.71,
      "mile_half": 28.0,
-     "form": 26.6,
+     "form": 23.6,
      "pred": 30
     },
     {
      "driver": "Cole Custer",
-     "score": 24.65,
+     "score": 24.46,
      "track": 21.56,
-     "similar_wx": 23.5,
+     "similar_wx": 23.75,
      "mile_half": 31.0,
-     "form": 27.0,
+     "form": 25.4,
      "pred": 31
     },
     {
-     "driver": "Austin Hill",
-     "score": 26.09,
-     "track": 22.38,
-     "similar_wx": null,
-     "mile_half": 33.0,
-     "form": 28.0,
+     "driver": "Zane Smith",
+     "score": 26.4,
+     "track": 24.17,
+     "similar_wx": 26.83,
+     "mile_half": 34.0,
+     "form": 22.4,
      "pred": 32
     },
     {
-     "driver": "Zane Smith",
-     "score": 26.35,
-     "track": 24.17,
-     "similar_wx": 25.5,
-     "mile_half": 34.0,
-     "form": 23.8,
+     "driver": "John Hunter Nemechek",
+     "score": 26.73,
+     "track": 24.81,
+     "similar_wx": 28.4,
+     "mile_half": 29.0,
+     "form": 27.2,
      "pred": 33
     },
     {
-     "driver": "John Hunter Nemechek",
-     "score": 26.82,
-     "track": 24.81,
-     "similar_wx": 30.67,
-     "mile_half": 29.0,
-     "form": 24.8,
+     "driver": "Austin Hill",
+     "score": 27.2,
+     "track": 22.38,
+     "similar_wx": 33.0,
+     "mile_half": 33.0,
+     "form": 26.2,
      "pred": 34
     },
     {
      "driver": "Ty Dillon",
-     "score": 27.74,
+     "score": 28.39,
      "track": 24.45,
-     "similar_wx": 26.0,
+     "similar_wx": 28.2,
      "mile_half": 37.0,
-     "form": 27.6,
+     "form": 29.0,
      "pred": 35
     },
     {
      "driver": "Riley Herbst",
-     "score": 27.88,
+     "score": 29.11,
      "track": 26.42,
-     "similar_wx": 31.0,
+     "similar_wx": 34.0,
      "mile_half": 35.0,
-     "form": 18.6,
+     "form": 22.8,
      "pred": 36
     },
     {
      "driver": "Cody Ware",
-     "score": 28.81,
+     "score": 29.26,
      "track": 26.44,
-     "similar_wx": 29.0,
+     "similar_wx": 30.5,
      "mile_half": 32.0,
-     "form": 31.4,
+     "form": 32.4,
      "pred": 37
     }
    ]
