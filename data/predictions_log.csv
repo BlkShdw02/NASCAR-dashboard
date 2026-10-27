@@ -75,40 +75,40 @@ race_id,track,race_date,driver,pred,score,generated_utc
 2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Ty Gibbs,35,25.25,2026-10-25T17:30:33.992556+00:00
 2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Josh Berry,36,28.15,2026-10-25T17:30:33.992556+00:00
 2026-10-25-talladega,Talladega Superspeedway,2026-10-25,Joey Logano,37,28.33,2026-10-25T17:30:33.992556+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Ryan Blaney,1,6.16,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Chase Elliott,2,7.34,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Joey Logano,3,7.5,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Kyle Larson,4,8.15,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,William Byron,5,9.34,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Denny Hamlin,6,10.01,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Christopher Bell,7,11.9,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Ross Chastain,8,13.46,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Ryan Preece,9,13.85,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Chase Briscoe,10,13.96,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Ty Gibbs,11,14.59,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Shane van Gisbergen,12,15.17,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Austin Cindric,13,15.38,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Corey Heim,14,16.2,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Josh Berry,15,16.61,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Tyler Reddick,16,16.83,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Alex Bowman,17,18.17,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Daniel Suarez,18,19.05,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Brad Keselowski,19,19.25,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Todd Gilliland,20,19.28,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Bubba Wallace,21,20.08,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Chris Buescher,22,20.21,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Carson Hocevar,23,20.55,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Michael McDowell,24,21.02,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Erik Jones,25,21.33,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Austin Dillon,26,22.18,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Cole Custer,27,23.85,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Connor Zilisch,28,24.0,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Noah Gragson,29,24.03,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,A.J. Allmendinger,30,24.42,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Ricky Stenhouse Jr.,31,24.68,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Zane Smith,32,26.59,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,John Hunter Nemechek,33,26.9,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Austin Hill,34,27.2,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Ty Dillon,35,29.02,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Cody Ware,36,29.29,2026-10-27T01:53:43.235049+00:00
-2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Riley Herbst,37,29.41,2026-10-27T01:53:43.235049+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Ryan Blaney,1,6.28,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Joey Logano,2,7.35,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Chase Elliott,3,7.55,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Kyle Larson,4,8.04,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Denny Hamlin,5,9.76,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,William Byron,6,9.98,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Christopher Bell,7,11.95,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Chase Briscoe,8,13.56,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Ross Chastain,9,13.59,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Ryan Preece,10,14.04,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Ty Gibbs,11,14.62,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Shane van Gisbergen,12,15.17,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Austin Cindric,13,15.98,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Corey Heim,14,16.2,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Josh Berry,15,16.61,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Tyler Reddick,16,16.89,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Alex Bowman,17,17.94,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Daniel Suarez,18,18.96,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Brad Keselowski,19,19.37,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Todd Gilliland,20,19.56,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Bubba Wallace,21,19.82,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Chris Buescher,22,19.9,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Carson Hocevar,23,20.55,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Michael McDowell,24,20.9,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Erik Jones,25,21.67,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Austin Dillon,26,21.82,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Cole Custer,27,23.85,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Connor Zilisch,28,24.0,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Ricky Stenhouse Jr.,29,24.1,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Noah Gragson,30,24.27,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,A.J. Allmendinger,31,24.47,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Zane Smith,32,26.84,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,John Hunter Nemechek,33,26.9,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Austin Hill,34,27.2,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Ty Dillon,35,29.05,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Cody Ware,36,29.29,2026-10-27T07:31:54.055288+00:00
+2026-11-01-martinsville,Martinsville Speedway,2026-11-01,Riley Herbst,37,29.41,2026-10-27T07:31:54.055288+00:00
