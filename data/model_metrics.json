@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T15:37:51.960157+00:00",
+ "updated": "2026-11-02T18:58:35.812620+00:00",
  "weights": [
   0.45,
   0.2,
@@ -8,11 +8,11 @@
  ],
  "weights_source": "default",
  "backtest": {
-  "races": 50,
-  "mae_default": 9.564142502826712,
-  "mae_used": 9.564142502826712,
-  "spearman_default": 0.3608376982972618,
-  "random_mae": 12.47
+  "races": 51,
+  "mae_default": 9.633473041986973,
+  "mae_used": 9.633473041986973,
+  "spearman_default": 0.3547446808528134,
+  "random_mae": 12.49
  },
  "live": [
   {
@@ -24,6 +24,16 @@
    "spearman": 0.184,
    "top10_hits": 3,
    "winner_pred_rank": 6
+  },
+  {
+   "race_id": "2026-10-25-talladega",
+   "track": "Talladega Superspeedway",
+   "date": "2026-10-25",
+   "drivers": 36,
+   "mae": 12.14,
+   "spearman": 0.091,
+   "top10_hits": 5,
+   "winner_pred_rank": 23
   }
  ]
 }
