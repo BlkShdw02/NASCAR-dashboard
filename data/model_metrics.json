@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T18:58:35.812620+00:00",
+ "updated": "2026-11-09T19:20:02.003965+00:00",
  "weights": [
   0.45,
   0.2,
@@ -8,11 +8,11 @@
  ],
  "weights_source": "default",
  "backtest": {
-  "races": 51,
-  "mae_default": 9.633473041986973,
-  "mae_used": 9.633473041986973,
-  "spearman_default": 0.3547446808528134,
-  "random_mae": 12.49
+  "races": 52,
+  "mae_default": 9.581688766000507,
+  "mae_used": 9.581688766000507,
+  "spearman_default": 0.3584937189681931,
+  "random_mae": 12.48
  },
  "live": [
   {
